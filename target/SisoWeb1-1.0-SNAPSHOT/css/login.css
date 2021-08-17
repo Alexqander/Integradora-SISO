@@ -1,0 +1,73 @@
+:root{
+    --azulSiso: #2E7BE7;
+    --verdeAgua: #04B8A6;
+    --azulClaro: #B4EAF5;
+    --gris:#F0F0F0;
+    --verdeBrillante:#47EF9E;
+
+    --fuentePrincipal:  'Montserrat', sans-serif;
+    --fuenteSecundria:'Courier New', Courier, monospace;
+}
+
+.caja-logo{
+
+    height: 100vh;
+    background: var(--azulSiso);
+
+
+
+}
+.caja-login{
+
+    height: 100vh;
+    background: var(--gris);
+
+}
+
+.img-siso{
+    width: 60%;
+    height: auto;
+}
+
+.contenedor-log{
+    
+    width: 381px;
+    height: 475px;
+
+    background: #E1E1E1;
+    box-shadow: -28px 28px 56px #A7A7A7, 28px -28px 56px #FFFFFF;
+    border-radius: 49px;
+    color: var(--azulSiso);
+
+}
+.img-usu{
+    width: 119px;
+    height: 119px;
+}
+
+.ingrese{
+    border-radius: 30px;
+    margin: none;
+    width: 100%;
+}
+.contenedor-img{
+    margin-top: 50px;
+}
+.cajabtn{
+    padding:15px;
+    margin-top: 10px;
+}
+.btn-iniciar{
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 20px;
+    border: none;
+}
+.btn-iniciar:hover{
+    transition: 1s;
+    width:90px ;
+    border:none;
+    background: var(--verdeAgua);
+}
+
+/* MEDIA QUIERYS */

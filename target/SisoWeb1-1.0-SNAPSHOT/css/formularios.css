@@ -1,0 +1,58 @@
+/* ---------VARIABLES-------------- */
+:root{
+
+    --azulSiso: #2E7BE7;
+    --verdeAgua: #04B8A6;
+    --azulClaro: #B4EAF5;
+    --gris:#F0F0F0;
+    --amarillo:#FFF238;
+    --verde:#11B827;
+
+    --verdeBrillante:#47EF9E;
+    --grisOscuro:#697484;
+
+    --fuentePrincipal:  'Montserrat', sans-serif;
+    --fuenteSecundria:'Courier New', Courier, monospace;
+
+    --anchovertical:300px;
+    --paddingmenu:10px;
+    --ancho-collapsed:50px;
+}
+
+/* FORMULARIO PARA NUEVO DOCUEMENTO */
+
+.titulo-formulario{
+    border-radius: 0px;
+    border-top:10px solid var(--azulClaro);
+    padding:15px 0 0 5px;
+    font-family: var(--fuentePrincipal);
+    
+}
+.formulario{
+    border-radius: 25px;
+    background: var(--verdeAgua);
+    width: 950px;
+    padding: 0px;
+    
+}
+
+
+
+
+/* --------------------------------------- */
+
+
+
+
+
+
+/* FORMULARIO PARA NUEVO USUARIO */
+
+
+
+
+/* --------------------------------------- */
+
+/* FORMULARIO PARA NUEVO DEPARTAMENTO */
+
+/* --------------------------------------- */

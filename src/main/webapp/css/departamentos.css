@@ -1,0 +1,108 @@
+/* ---------VARIABLES-------------- */
+:root{
+
+    --azulSiso: #2E7BE7;
+    --verdeAgua: #04B8A6;
+    --azulClaro: #B4EAF5;
+    --gris:#F0F0F0;
+    --amarillo:#FFF238;
+    --verde:#1DC257;
+
+    --verdeBrillante:#47EF9E;
+    --grisOscuro:#697484;
+
+    --fuentePrincipal:  'Montserrat', sans-serif;
+    --fuenteSecundria:'Courier New', Courier, monospace;
+
+    --anchovertical:300px;
+    --paddingmenu:10px;
+    --ancho-collapsed:50px;
+}
+
+.card{
+    border: none;
+    border-radius: 20px;
+    height: 180px;
+    background: rgba( 110, 105, 105, 0.20 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 15.5px );
+    -webkit-backdrop-filter: blur( 14.5px );
+    border-radius: 15px;
+    border:  rgba( 255, 255, 255, 0.18 );
+
+    font-family: var(--fuentePrincipal);
+}
+
+.card:hover{
+    background: var(--gris);
+    color:var(--azulSiso);
+}
+
+a{
+    text-decoration: none;
+    color: var(--grisOscuro);
+}
+
+.pie{
+    background: var(--azulClaro);
+    border-radius: 15px;
+}
+.titulo{
+    background: var(--azulClaro);
+    padding: 8px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    color: var(--grisOscuro);
+    font-family: var(--fuentePrincipal);
+}
+.icono-card svg{
+    color:var(--grisOscuro);
+}
+.icono-card svg:hover{
+    color:var(--gris);
+}
+
+/* ELEMENTOS DEL DOCUMENTO VISTA DEPARTAMENTOS */
+
+.caja-rp{
+
+    border-left:10px solid var(--verde);
+    border-radius: 5px;
+    padding-left:10px;
+    color:var(--grisOscuro);
+}
+.caja-aux{
+
+    border-left:10px solid var(--azulSiso);
+    border-radius: 5px;
+    padding-left:10px;
+    color:var(--grisOscuro);
+}
+.user:hover{
+    transition: 0.5s;
+    padding: 10px;
+}
+.elemento-lista{
+    margin-top: 25px;
+}
+
+.elemento-lista:hover{
+    transition: 0.7s;
+    background: rgba(173, 171, 171, 0.37);
+    box-shadow: 0 8px 32px 0 rgba(206, 208, 230, 0.445);
+    backdrop-filter: blur( 14.5px );
+    -webkit-backdrop-filter: blur( 14.5px );
+    border-radius: 10px;
+    border:  rgba(255, 255, 255, 0.329);
+    border-radius: 15px;
+
+    padding:15px;
+}
+
+.encabezado-archivos{
+    background: var(--gris);
+}
+
+
+
+/* ELEMENTOS DEL DOCUMENTO VISTA DEPARTAMENTOS */

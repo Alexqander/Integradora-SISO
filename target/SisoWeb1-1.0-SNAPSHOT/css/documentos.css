@@ -1,0 +1,48 @@
+/* ---------VARIABLES-------------- */
+:root{
+
+    --azulSiso: #2E7BE7;
+    --verdeAgua: #04B8A6;
+    --azulClaro: #B4EAF5;
+    --gris:#F0F0F0;
+    --amarillo:#FFF238;
+    --verde:#11B827;
+
+    --verdeBrillante:#47EF9E;
+    --grisOscuro:#697484;
+
+    --fuentePrincipal:  'Montserrat', sans-serif;
+    --fuenteSecundria:'Courier New', Courier, monospace;
+
+    --anchovertical:300px;
+    --paddingmenu:10px;
+    --ancho-collapsed:50px;
+}
+
+/* CAJAS DE INFORMACION */
+
+.info-1{
+
+    border-radius: 10px;
+    border-left: 10px solid var(--amarillo);
+    margin-right: 5px;
+    margin-top: 10px;
+    width: 250px;
+
+}
+
+.info-2{
+    border-radius: 10px;
+    border-left: 10px solid var(--azulSiso);
+    margin-right: 5px;
+    margin-top: 10px;
+    width: 250px;
+}
+
+.info-3{
+    border-radius: 10px;
+    border-left: 10px solid var(--verde);
+    margin-right: 5px;
+    margin-top: 10px;
+    width: 250px;
+}

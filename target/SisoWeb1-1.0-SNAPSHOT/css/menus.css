@@ -1,0 +1,180 @@
+/* ---------VARIABLES-------------- */
+:root{
+
+    --azulSiso: #2E7BE7;
+    --verdeAgua: #04B8A6;
+    --azulClaro: #B4EAF5;
+    --gris:#F0F0F0;
+
+    --verdeBrillante:#47EF9E;
+    --grisOscuro:#697484;
+
+    --fuentePrincipal:  'Montserrat', sans-serif;
+    --fuenteSecundria:'Courier New', Courier, monospace;
+
+    --anchovertical:300px;
+    --paddingmenu:10px;
+    --ancho-collapsed:50px;
+}
+
+
+body{
+    background: var(--gris);
+    
+    
+}
+
+/*----------------------- IMAGENES-------- */
+.img-siso{
+    width:23% ;
+    
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.img-user{
+    width:33px ;
+    height:33px ;
+    
+}
+/* -------------------IMAGENES------------- */
+
+
+/* --------------------------------------------- */
+
+/* -------------------------HEADER--------------------- */
+header{
+    background: var(--azulSiso);
+}
+header .logo{
+
+    display: inline-block;
+
+}
+header .barra-busqueda{
+    position: relative;
+    width: 100%;
+
+}
+
+header .barra-busqueda input{
+    width: 250px;
+    border: none;
+    background: var(--gris);
+    color:var(--grisOscuro);
+    height: 30px;
+    border-radius: 100px;
+    padding: 0 20px 0 40px;
+
+}
+
+header .barra-busqueda input:hover{
+    margin: none;
+
+}
+
+header .barra-busqueda .icono{
+    position: absolute;
+    top:2px;
+    left:15px;
+    color: var(--grisOscuro);
+}
+
+header .config svg{
+    color:#F0F0F0
+}
+
+header a:hover{
+    background: var(--azulSiso);
+}
+
+
+
+/* -------------------------HEADER--------------------- */
+
+
+/* ------------------------ASIDE ----------------------*/
+
+aside {
+    height: 100vh;
+    overflow: hidden;
+    padding-top: 40px;
+    background: var(--azulSiso);
+    
+}
+
+.enlaces-rapidos >nav a {
+    display: flex;
+    align-items: center;
+    color: var(--gris);
+    text-decoration: none;
+    border-radius: 10px;
+
+}
+
+.enlaces-rapidos >nav a:hover {
+    background: var(--grisOscuro);
+    
+}
+
+.enlaces-rapidos .icono svg {
+    height: 25px;
+    width: 25px;
+    
+}
+
+.blanco{
+    background: var(--gris);
+    padding-top:50px ;
+    
+}
+.opciones{
+    list-style: none;
+}
+.icono-l{
+    margin-bottom: 10px;
+    margin-right: 5px;
+    height:15px ;
+    width:15px ;
+    padding:0px 0px 5px 7px;
+}
+
+.p-text{
+    margin: 0;
+    padding: 8px;
+}
+
+
+
+
+/*---------------------- MEDIAQUERIES-------------- */
+@media screen and (max-width:992px){
+
+    header{
+        padding-top: 10px;
+    }
+
+    aside{
+        margin-top: 130px;
+    }
+    .blanco{
+        padding-top: 60px;
+    }
+    
+}
+
+@media screen and (max-width:500px){
+
+    header{
+        padding-top: 10px;
+    }
+
+    aside{
+        margin-top: 130px;
+    }
+    .blanco{
+        padding-top: 80px;
+    }
+    
+}
+

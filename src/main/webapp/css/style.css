@@ -1,0 +1,203 @@
+:root{
+    --azulSiso: #2E7BE7;
+    --verdeAgua: #04B8A6;
+    --azulClaro: #B4EAF5;
+    --gris:#F0F0F0;
+    --verdeBrillante:#47EF9E;
+
+    --fuentePrincipal:  'Montserrat', sans-serif;
+    --fuenteSecundria:'Courier New', Courier, monospace;
+}
+
+
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background: #FFFFFF ;
+}
+
+.contenedor{
+    width: 100%;
+    max-width: 1920px;
+    display: grid;
+
+
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows:(1 auto);
+    
+
+    grid-template-areas: "seccion-siso seccion-siso seccion-login seccion-login";
+}
+
+.contenedor > div,
+.contenedor .seccion-siso,
+.contenedor .seccion-login {
+    font-family: var(--fuenteSecundria);
+
+}
+
+.contenedor .seccion-siso {
+
+    background: var(--azulSiso);
+    grid-area: seccion-siso;
+    height: 100%;
+    width: 100%;
+    height: 980px;
+    display: flex;
+    align-items:center ;
+    justify-content: center;
+    
+
+}
+
+.imagecontenedor{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4em;
+    border-radius: 47px;
+    border-radius: 66px;
+
+}
+
+.imgsiso{
+    
+    width: 60%;
+    height: auto;   
+    
+}
+
+.contenedor .seccion-login {
+    background: #FFFFFF;
+    grid-area: seccion-login;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content:space-around;
+}
+
+.cajalogin{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 381px;
+    height: 475px;
+    left: 895px;
+    top: 302px;
+
+    margin: 6em 0px 6em 0px;
+
+    background: #E1E1E1;
+    box-shadow: -28px 28px 56px #A7A7A7, 28px -28px 56px #FFFFFF;
+    border-radius: 49px;
+    padding:auto;
+    ;
+}
+
+.contenidolog{
+    display:flex ;
+    align-items: center;
+    align-content: center;
+
+    width: 100%;
+    height: auto;
+    padding: 3em;
+
+}
+
+
+.imgcl{
+    width: 119px;
+    height: 119px;
+    margin-top: 10px;
+    margin-left: 85px;
+}
+
+.tex{
+    width: 92px;
+    height: 29px;
+    font-family: var(--fuentePrincipal);
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 29px;
+    color: #00357B;
+    margin-left: 95px;
+}
+
+.tex-2{
+    width: 92px;
+    height: 29px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 29px;
+    color: #00357B;
+    margin-left: 68px;
+}
+
+form input[type="email"],
+form input[type="password"]{
+    width: 264px;
+    height: 32px;
+    border-radius: 20px;
+    border: none;
+    display:inline-block;
+    padding:5px 10px;
+    font-family: var(--fuenteSecundria);
+    
+}
+
+.btninic {
+    
+    background: #039576;
+    border-radius: 20px;
+    border: none;
+    margin-left: 67px;
+    color:#FFFFFF;
+    padding: 10px 45px  ;
+    font-family: var(--fuentePrincipal);
+    font-weight: normal;
+    text-decoration: none;
+    
+}
+
+.btninic:hover{
+
+    background:#2E7BE7;
+    
+}
+
+@media  (max-width: 978px) {
+
+    .contenedor{
+        width: 100%;
+        max-width: 812px;
+        display: grid;
+        grid-template-columns: 1 auto;
+        
+        grid-template-areas: "seccion-login seccion-login seccion-login seccion-login";
+    }
+
+    .imagecontenedor{
+        display: none;
+    }
+
+    .contenedor .seccion-login {
+        background: #FFFFFF;
+        grid-area: seccion-login;
+        height: 100%;
+        width: auto;
+        display: flex;
+        align-items: center;
+        justify-content:center;
+    }
+
+    
+    
+}
+
+
