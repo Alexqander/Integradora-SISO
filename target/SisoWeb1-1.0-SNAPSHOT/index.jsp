@@ -1,4 +1,10 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<c:if test="${sessionScope.login !=null}">
+    <c:redirect url="/ServletRutes"/>
+</c:if>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,24 +43,29 @@
                 </div>
                 <div class="row body">
 
+                    <div class="alert alert-primary" role="alert">
+                        ${message}
+                    </div>
+
                     <div class="col d-flex justify-content-center">
 
-                        <form class="" action="">
+                        <form class="" action="${pageContext.request.contextPath}/ServletLogin" method="post">
                             <div class="in-usuario mt-2">
                                 <div class="label d-flex justify-content-center">
-                                    <label for=""><h6>Usuario</h6></label>
+                                    <label for="username"><h6>Usuario</h6></label>
                                 </div>
-                                <input class="form-control ingrese" type="text" placeholder="ingrese su correo">
+                                <input class="form-control ingrese" type="text" id="username" name="username" placeholder="ingrese su correo">
                             </div>
                             <div class="in-contraseña mt-2">
                                 <div class="label d-flex justify-content-center">
-                                    <label for=""><h6>Contraseña</h6></label>
+                                    <label for="password"><h6>Contraseña</h6></label>
                                 </div>
-                                <input class="form-control ingrese" type="password" placeholder="ingrese su contraseña">
+                                <input class="form-control ingrese" type="password" id="password" name="password" placeholder="ingrese su contraseña">
                             </div>
                             <div class="cajabtn col d-flex justify-content-center">
-                                <button class="btn btn-iniciar btn-primary" type="submit" >Iniciar</button>
+                                <button  class="btn btn-iniciar btn-primary" type="submit" >Iniciar</button>
                             </div>
+
                         </form>
 
                     </div>
@@ -64,6 +75,6 @@
     </div>
 </div>
 
-<script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

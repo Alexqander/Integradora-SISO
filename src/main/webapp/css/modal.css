@@ -1,0 +1,35 @@
+:root{
+
+    --azulSiso: #2E7BE7;
+    --verdeAgua: #04B8A6;
+    --azulClaro: #B4EAF5;
+    --gris:#F0F0F0;
+    --amarillo:#FFF238;
+    --verde:#11B827;
+
+    --verdeBrillante:#47EF9E;
+    --grisOscuro:#697484;
+    --grisAdmin:#E7E8EB;
+
+    --fuentePrincipal:  'Montserrat', sans-serif;
+    --fuenteSecundria:'Courier New', Courier, monospace;
+
+    --anchovertical:300px;
+    --paddingmenu:10px;
+    --ancho-collapsed:50px;
+}
+
+
+
+.img-modal{
+    width:50%;
+    height:auto;
+}
+.cot{
+    background: var(--grisAdmin);
+    color:var(--azulSiso);
+}
+.tit{
+    padding: 5px 0 5px 50px;
+    margin-left: 50px;
+}

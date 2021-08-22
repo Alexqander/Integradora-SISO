@@ -8,6 +8,7 @@
 
     --verdeBrillante:#47EF9E;
     --grisOscuro:#697484;
+    --grisAdmin:#E7E8EB;
 
     --fuentePrincipal:  'Montserrat', sans-serif;
     --fuenteSecundria:'Courier New', Courier, monospace;
@@ -23,7 +24,6 @@ body{
     
     
 }
-
 /*----------------------- IMAGENES-------- */
 .img-siso{
     width:23% ;
@@ -32,10 +32,21 @@ body{
     margin-bottom: 10px;
 }
 
+
 .img-user{
     width:33px ;
     height:33px ;
     
+}
+.imgBg{
+    width:100%;
+}
+.img-doc{
+    width:100%;
+}
+.bienvenida{
+    color: var(--azulSiso);
+    font-family: var(--fuentePrincipal);
 }
 /* -------------------IMAGENES------------- */
 
@@ -44,7 +55,7 @@ body{
 
 /* -------------------------HEADER--------------------- */
 header{
-    background: var(--azulSiso);
+    background: var(--grisAdmin);
 }
 header .logo{
 
@@ -69,7 +80,7 @@ header .barra-busqueda input{
 }
 
 header .barra-busqueda input:hover{
-    margin: none;
+    border:none;
 
 }
 
@@ -81,7 +92,7 @@ header .barra-busqueda .icono{
 }
 
 header .config svg{
-    color:#F0F0F0
+    color:var(--azulSiso)
 }
 
 header a:hover{
@@ -98,22 +109,22 @@ header a:hover{
 aside {
     height: 100vh;
     overflow: hidden;
-    padding-top: 40px;
-    background: var(--azulSiso);
+    padding-top: 50px;
+    background:var(--grisAdmin);
     
 }
 
 .enlaces-rapidos >nav a {
     display: flex;
     align-items: center;
-    color: var(--gris);
+    color: var(--azulSiso);
     text-decoration: none;
     border-radius: 10px;
 
 }
 
 .enlaces-rapidos >nav a:hover {
-    background: var(--grisOscuro);
+    background: var(--gris);
     
 }
 
@@ -125,7 +136,7 @@ aside {
 
 .blanco{
     background: var(--gris);
-    padding-top:50px ;
+    padding-top:60px ;
     
 }
 .opciones{

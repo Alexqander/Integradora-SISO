@@ -1,16 +1,14 @@
 <%--
   Created by IntelliJ IDEA.
   User: servi
-  Date: 16/08/2021
-  Time: 05:01 p. m.
+  Date: 20/08/2021
+  Time: 03:00 p. m.
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 
-<c:if test="${sessionScope.login==null}">
-    <c:redirect url="/index.jsp"></c:redirect>
-</c:if>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,8 +18,9 @@
 
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/menus.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/departamentos.css">
 
-    <title>HOME</title>
+    <title>DEPARTAMENTOS</title>
 </head>
 <body>
 <header class="fixed-top">
@@ -30,7 +29,7 @@
             <!--logo-->
 
             <div class="col-xl-2 col-md-3 col-sm-3">
-                <a href=""><img src="${pageContext.request.contextPath}/images/siso-icono.png"class="img-siso" alt=""></a>
+                <a href="${pageContext.request.contextPath}/ServletRutes?to=views/superAdmin/inicioSuperAd.jsp"><img src="${pageContext.request.contextPath}/images/siso-icono.png"class="img-siso" alt=""></a>
             </div>
 
             <!--barra de busqueda-->
@@ -69,7 +68,7 @@
                         <img src="${pageContext.request.contextPath}/images/usuario-icono.png" class="img-user" alt="">
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="dropdown-2">
-                        <li><a href="#" class="dropdown-item">Salir <svg class="mx-2 my-1" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+                        <li><a href="#" class="dropdown-item">Salir <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-right mx-2 my-1 " viewBox="0 0 16 16">
                             <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
                             <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
                         </svg></a></li>
@@ -89,33 +88,34 @@
         <aside class="enlaces-rapidos col-3 col-xl-2">
 
             <nav>
-                <a  href="#menu-documentos" type="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="menu-opciones">
+                <a  href="#menu-usuarios" type="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="menu-usuarios">
                     <div class="icono mx-2 my-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-files" viewBox="0 0 16 16">
-                            <path d="M13 0H6a2 2 0 0 0-2 2 2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2 2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm0 13V4a2 2 0 0 0-2-2H5a1 1 0 0 1 1-1h7a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1zM3 4a1 1 0 0 1 1-1h7a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4z"/>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-people" viewBox="0 0 16 16">
+                            <path d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1h8zm-7.978-1A.261.261 0 0 1 7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002a.274.274 0 0 1-.014.002H7.022zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0zM6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816zM4.92 10A5.493 5.493 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275zM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0zm3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/>
                         </svg>
-                    </div>Documentos
+                    </div>
+                    Usuarios
                 </a>
-                <div class="collapse mt-3" id="menu-documentos">
+                <div class="collapse mt-3" id="menu-usuarios">
                     <ul class="men">
-                        <li class="opciones"><a href=""><div class="icono-l">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-earmark-plus" viewBox="0 0 16 16">
-                                <path d="M8 6.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V11a.5.5 0 0 1-1 0V9.5H6a.5.5 0 0 1 0-1h1.5V7a.5.5 0 0 1 .5-.5z"/>
-                                <path d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5L14 4.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5h-2z"/>
+                        <li class="opciones"><a href="${pageContext.request.contextPath}/ServletRutes?to=views/superAdmin/CrearUsuario.jsp"><div class="icono-l">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-plus" viewBox="0 0 16 16">
+                                <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H1s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
+                                <path fill-rule="evenodd" d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"/>
                             </svg>
                         </div> <p class="p-text">Nuevo</p></a>
                         </li>
-                        <li class="opciones"><a href=""><div class="icono-l">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard" viewBox="0 0 16 16">
-                                <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/>
-                                <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/>
+                        <li class="opciones"><a href="${pageContext.request.contextPath}/ServletRutes?to=views/superAdmin/listaUsuarios.jsp"><div class="icono-l">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-bounding-box" viewBox="0 0 16 16">
+                                <path d="M1.5 1a.5.5 0 0 0-.5.5v3a.5.5 0 0 1-1 0v-3A1.5 1.5 0 0 1 1.5 0h3a.5.5 0 0 1 0 1h-3zM11 .5a.5.5 0 0 1 .5-.5h3A1.5 1.5 0 0 1 16 1.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 1-.5-.5zM.5 11a.5.5 0 0 1 .5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 1 0 1h-3A1.5 1.5 0 0 1 0 14.5v-3a.5.5 0 0 1 .5-.5zm15 0a.5.5 0 0 1 .5.5v3a1.5 1.5 0 0 1-1.5 1.5h-3a.5.5 0 0 1 0-1h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 1 .5-.5z"/>
+                                <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm8-9a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
                             </svg>
                         </div>
                             <p class="p-text">Consultar</p></a>
                         </li>
                     </ul>
                 </div>
-                <a href="#menu-departamentos" type="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="menu-opciones" >
+                <a href="#menu-departamentos" type="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="menu-departamentos" >
                     <div class="icono mx-2 my-2">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-building" viewBox="0 0 16 16">
                             <path fill-rule="evenodd" d="M14.763.075A.5.5 0 0 1 15 .5v15a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5V14h-1v1.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V10a.5.5 0 0 1 .342-.474L6 7.64V4.5a.5.5 0 0 1 .276-.447l8-4a.5.5 0 0 1 .487.022zM6 8.694 1 10.36V15h5V8.694zM7 15h2v-1.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5V15h2V1.309l-7 3.5V15z"/>
@@ -126,13 +126,13 @@
                 <div class="collapse mt-3" id="menu-departamentos">
                     <ul  class="men">
 
-                        <li class="opciones "><a href=""> <div class="icono-l">
+                        <li class="opciones "><a href="${pageContext.request.contextPath}/ServletRutes?to=views/superAdmin/crearDepa.jsp"> <div class="icono-l">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
                                 <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
                             </svg>
                         </div>
                             <p class="p-text">Agregar</p></a></li>
-                        <li class="opciones "><a href=""> <div class="icono-l">
+                        <li class="opciones "><a href="${pageContext.request.contextPath}/ServletRutes?to=views/superAdmin/DepartamentosSuperAd.jsp"> <div class="icono-l">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-columns-gap" viewBox="0 0 16 16">
                                 <path d="M6 1v3H1V1h5zM1 0a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1H1zm14 12v3h-5v-3h5zm-5-1a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1h-5zM6 8v7H1V8h5zM1 7a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1V8a1 1 0 0 0-1-1H1zm14-6v7h-5V1h5zm-5-1a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1h-5z"/>
                             </svg>
@@ -172,14 +172,6 @@
 
             </nav>
 
-            <footer>
-                <nav>
-
-                </nav>
-            </footer>
-
-
-
         </aside>
 
 
@@ -187,29 +179,69 @@
             <div class="contenido bg-ligth ">
                 <div class="head">
                     <div class="row">
-                        <div class="col-12 d-flex justify-content-center">
+                        <div class="col-12">
                             <div class="titulo">
-
-                                <h3 class="bienvenida">Bienvenido a Sistema de Seguimiento de Oficios</h3>
-
+                                <h5>Departamentos</h5>
                             </div>
+
                         </div>
-                        <div class="body">
-                            <div class="row justify-content-center">
-                                <div class="col-7 d-flex align-items-center justify-content-center">
-                                    <div class="cont-img">
-                                        <img src="${pageContext.request.contextPath}/images/FondoBienvenida.png" class="imgBg img-fluid" alt="">
+                    </div>
+                </div>
+
+                <div class="body">
+
+                    <div class="row">
+
+                        <c:forEach items="${listadeptos}" var="departamento" varStatus="status">
+                            <div class="col-3">
+                                <a href="">
+                                    <div class="card mt-2">
+
+                                        <div class="card-body d-flex justify-content-center">
+                                            <div class="icono">
+                                            </div>
+                                        </div>
+                                        <div class="pie d-flex justify-content-center ">
+                                            <div class="titulo-card p-2">
+                                                <h5>${departamento.nombreDepto}</h5>
+                                            </div>
+                                        </div>
                                     </div>
+                                </a>
+                            </div>
+                        </c:forEach>
+
+                        <div class="col-3">
+                            <div class="card mt-2">
+                                <div class="card-body d-flex justify-content-center align-items-center">
+                                    <a href="">
+                                        <div class="icono-card">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
+                                                <path d="M8 0a1 1 0 0 1 1 1v6h6a1 1 0 1 1 0 2H9v6a1 1 0 1 1-2 0V9H1a1 1 0 0 1 0-2h6V1a1 1 0 0 1 1-1z"/>
+                                            </svg>
+                                        </div>
+                                    </a>
                                 </div>
                             </div>
                         </div>
                     </div>
+
+
+
+                </div>
+
+                <div class="footer">
+                    <div class="row">
+                        <div class="col">
+
+                        </div>
+                    </div>
+
+
+
                 </div>
             </div>
         </main>
-
-
-
     </div>
 </div>
 

@@ -9,31 +9,31 @@ import java.util.List;
 public class DaoDepartamentos {
 
     public List<BeanDepartamentos> findAll(){
-      List<BeanDepartamentos>  departamentosList = new ArrayList<>();
+        List<BeanDepartamentos> departmentList = new ArrayList<>();
+        try (Connection con = ConnectionMysql.getConnection();
 
-      try(
-              Connection con = ConnectionMysql.getConnection();
-              Statement stm = con.createStatement();
-              ResultSet resultado = stm.executeQuery("SELECT , NombreDepto from departamentos");
-              ){
+             Statement stm = con.createStatement();
+             ResultSet rs = stm.executeQuery("select * from departamentos;");
 
-          while (resultado.next()){
-              BeanDepartamentos UnDepartamento = new BeanDepartamentos();
-              UnDepartamento.setId_departamento(resultado.getInt("Id_Departamento"));
-              UnDepartamento.setNombreDepto(resultado.getString("NombreDepto"));
-              UnDepartamento.setNumeroEdificio(resultado.getInt("NumeroEdificio"));
-              departamentosList.add(UnDepartamento);
-          }
-      }catch (SQLException exception) {
-          exception.printStackTrace();
-      }
+        ){
 
-      return departamentosList;
+            while (rs.next()){
+                BeanDepartamentos unDepartment = new BeanDepartamentos();
+                unDepartment.setId_departamento(rs.getInt("Id_Departamento"));
+                unDepartment.setNombreDepto(rs.getString("NombreDepto"));
+                unDepartment.setNumeroEdificio(rs.getInt("NumeroEdificio"));
+                departmentList.add(unDepartment);
+            }
 
+        }catch (SQLException ex){
+            ex.printStackTrace();
+        }
+        return departmentList;
     }
 
-    public boolean GuardarDepartamento(BeanDepartamentos unDepartamento) {
 
+
+    public boolean GuardarDepartamento(BeanDepartamentos unDepartamento) {
 
         try (Connection Connection = ConnectionMysql.getConnection();) {
             try (PreparedStatement pstm = Connection.prepareStatement("INSERT INTO departamentos (Id_Departamento, NombreDepto, NumeroEdificio) VALUES (?,?,? );")) {
@@ -94,6 +94,24 @@ public class DaoDepartamentos {
         return false;
 
     }
+    public boolean deleteDepa (int id_dep ){
+        try (Connection connection = ConnectionMysql.getConnection();) {
+            try (PreparedStatement pstm = connection.prepareStatement( "delete departamentos where Id_Departamento="+id_dep );) {
+                pstm.executeUpdate();
+            }catch (SQLException ex){
+                ex.printStackTrace();
+            }
+
+        }catch (SQLException ex){
+            ex.printStackTrace();
+        }
+
+        return false;
+
+    }
+
+
+
 
 
 

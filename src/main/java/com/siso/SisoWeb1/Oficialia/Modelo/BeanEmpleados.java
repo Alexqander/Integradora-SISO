@@ -1,28 +1,38 @@
 package com.siso.SisoWeb1.Oficialia.Modelo;
 
 public class BeanEmpleados {
+    private int id;
     private int id_Empleado ;
-    private int id_cargo ;
-    private int id_depto ;
+    private String id_cargo ;
+    private String id_depto ;
     private String contraseña;
-    private String Nombre  ;
-    private String Apellido_paterno  ;
-    private String Apellido_materno  ;
-    private String Email;
+    private String nombre  ;
+    private String apellido_paterno  ;
+    private String apellido_materno  ;
+    private String email;
 
     public BeanEmpleados(){
 
     }
 
-    public BeanEmpleados(int id_Empleado, int id_cargo, int id_depto, String contraseña, String nombre, String apellido_paterno, String apellido_materno, String email) {
+    public BeanEmpleados(int id, int id_Empleado, String id_cargo, String id_depto, String contraseña, String nombre, String apellido_paterno, String apellido_materno, String email) {
+        this.id = id;
         this.id_Empleado = id_Empleado;
         this.id_cargo = id_cargo;
         this.id_depto = id_depto;
         this.contraseña = contraseña;
-        Nombre = nombre;
-        Apellido_paterno = apellido_paterno;
-        Apellido_materno = apellido_materno;
-        Email = email;
+        this.nombre = nombre;
+        this.apellido_paterno = apellido_paterno;
+        this.apellido_materno = apellido_materno;
+        this.email = email;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getId_Empleado() {
@@ -33,19 +43,19 @@ public class BeanEmpleados {
         this.id_Empleado = id_Empleado;
     }
 
-    public int getId_cargo() {
+    public String getId_cargo() {
         return id_cargo;
     }
 
-    public void setId_cargo(int id_cargo) {
+    public void setId_cargo(String id_cargo) {
         this.id_cargo = id_cargo;
     }
 
-    public int getId_depto() {
+    public String getId_depto() {
         return id_depto;
     }
 
-    public void setId_depto(int id_depto) {
+    public void setId_depto(String id_depto) {
         this.id_depto = id_depto;
     }
 
@@ -58,35 +68,35 @@ public class BeanEmpleados {
     }
 
     public String getNombre() {
-        return Nombre;
+        return nombre;
     }
 
     public void setNombre(String nombre) {
-        Nombre = nombre;
+        this.nombre = nombre;
     }
 
     public String getApellido_paterno() {
-        return Apellido_paterno;
+        return apellido_paterno;
     }
 
     public void setApellido_paterno(String apellido_paterno) {
-        Apellido_paterno = apellido_paterno;
+        this.apellido_paterno = apellido_paterno;
     }
 
     public String getApellido_materno() {
-        return Apellido_materno;
+        return apellido_materno;
     }
 
     public void setApellido_materno(String apellido_materno) {
-        Apellido_materno = apellido_materno;
+        this.apellido_materno = apellido_materno;
     }
 
     public String getEmail() {
-        return Email;
+        return email;
     }
 
     public void setEmail(String email) {
-        Email = email;
+        this.email = email;
     }
 }
 
