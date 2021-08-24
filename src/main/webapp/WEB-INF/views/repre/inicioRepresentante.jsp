@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: servi
-  Date: 21/08/2021
-  Time: 04:14 p. m.
+  Date: 16/08/2021
+  Time: 05:02 p. m.
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -20,8 +20,6 @@
 
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/menus.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/formu.css">
-
 
     <title>HOME</title>
 </head>
@@ -32,7 +30,7 @@
             <!--logo-->
 
             <div class="col-xl-2 col-md-3 col-sm-3">
-                <a href="${pageContext.request.contextPath}/ServletRutes?to=views/Oficial/inicioOficial.jsp"><img src="${pageContext.request.contextPath}/images/siso-icono.png"class="img-siso" alt=""></a>
+                <a href="${pageContext.request.contextPath}/ServletRutes?to=views/repre/inicioRepresentante.jsp"><img src="${pageContext.request.contextPath}/images/siso-icono.png"class="img-siso" alt=""></a>
             </div>
 
             <!--botones y usuario-->
@@ -88,14 +86,8 @@
                 </a>
                 <div class="collapse mt-3" id="menu-documentos">
                     <ul class="men">
-                        <li class="opciones"><a href="${pageContext.request.contextPath}/ServletDocumentos?accion=2"><div class="icono-l">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-earmark-plus" viewBox="0 0 16 16">
-                                <path d="M8 6.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V11a.5.5 0 0 1-1 0V9.5H6a.5.5 0 0 1 0-1h1.5V7a.5.5 0 0 1 .5-.5z"/>
-                                <path d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5L14 4.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5h-2z"/>
-                            </svg>
-                        </div> <p class="p-text">Nuevo</p></a>
-                        </li>
-                        <li class="opciones"><a href="${pageContext.request.contextPath}/ServletDocumentos?accion=1"><div class="icono-l">
+
+                        <li class="opciones"><a href="${pageContext.request.contextPath}/ServletDocumentos?accion=r1"><div class="icono-l">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard" viewBox="0 0 16 16">
                                 <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/>
                                 <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/>
@@ -105,29 +97,6 @@
                         </li>
                     </ul>
                 </div>
-                <a href="#menu-departamentos" type="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="menu-opciones" >
-                    <div class="icono mx-2 my-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-building" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd" d="M14.763.075A.5.5 0 0 1 15 .5v15a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5V14h-1v1.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V10a.5.5 0 0 1 .342-.474L6 7.64V4.5a.5.5 0 0 1 .276-.447l8-4a.5.5 0 0 1 .487.022zM6 8.694 1 10.36V15h5V8.694zM7 15h2v-1.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5V15h2V1.309l-7 3.5V15z"/>
-                            <path d="M2 11h1v1H2v-1zm2 0h1v1H4v-1zm-2 2h1v1H2v-1zm2 0h1v1H4v-1zm4-4h1v1H8V9zm2 0h1v1h-1V9zm-2 2h1v1H8v-1zm2 0h1v1h-1v-1zm2-2h1v1h-1V9zm0 2h1v1h-1v-1zM8 7h1v1H8V7zm2 0h1v1h-1V7zm2 0h1v1h-1V7zM8 5h1v1H8V5zm2 0h1v1h-1V5zm2 0h1v1h-1V5zm0-2h1v1h-1V3z"/>
-                        </svg>
-                    </div>Departamentos
-                </a>
-                <div class="collapse mt-3" id="menu-departamentos">
-                    <ul  class="men">
-
-                        <li class="opciones "><a href="${pageContext.request.contextPath}/ServletDepartamentos?op=il"> <div class="icono-l">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-columns-gap" viewBox="0 0 16 16">
-                                <path d="M6 1v3H1V1h5zM1 0a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1H1zm14 12v3h-5v-3h5zm-5-1a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1h-5zM6 8v7H1V8h5zM1 7a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1V8a1 1 0 0 0-1-1H1zm14-6v7h-5V1h5zm-5-1a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1h-5z"/>
-                            </svg>
-                        </div>
-                            <p class="p-text">Consultar</p></a></li>
-                    </ul>
-                </div>
-
-
-
-
                 <a  href="#menu-config" type="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="menu-opciones">
                     <div class="icono mx-2 my-2">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-gear" viewBox="0 0 16 16">
@@ -138,7 +107,7 @@
                 </a>
                 <div class="collapse mt-3" id="menu-config">
                     <ul class="men">
-                        <li class="opciones"><a href="${pageContext.request.contextPath}/ServletRutes?to="> <div class="icono-l">
+                        <li class="opciones "><a href="${pageContext.request.contextPath}/ServletRutes?to="> <div class="icono-l">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-sliders" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd" d="M11.5 2a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM9.05 3a2.5 2.5 0 0 1 4.9 0H16v1h-2.05a2.5 2.5 0 0 1-4.9 0H0V3h9.05zM4.5 7a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM2.05 8a2.5 2.5 0 0 1 4.9 0H16v1H6.95a2.5 2.5 0 0 1-4.9 0H0V8h2.05zm9.45 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm-2.45 1a2.5 2.5 0 0 1 4.9 0H16v1h-2.05a2.5 2.5 0 0 1-4.9 0H0v-1h9.05z"/>
                             </svg>
@@ -149,73 +118,23 @@
             </nav>
         </aside>
 
-
         <main class="col-10 col-md-9 bg-ligth px-3">
             <div class="contenido bg-ligth ">
                 <div class="head">
-                    <div class="row titulo-formulario">
-                        <div class="col-6">
-
-                        </div>
-                        <div class="col-6">
-
-                        </div>
-                    </div>
-                </div>
-                <div class="body">
-                    <div class="row d-flex flex-row justify-content-center mb-5 titulo-formulario ">
-                        <div class="col-3 titul">
-                            <div class="titul bg-primary d-flex justify-content-center align-items-center">
-                                <h4>Nuevo Documento</h4>
-                            </div>
-
-                        </div>
-                    </div>
                     <div class="row">
-                        <div class="col-6 d-flex justify-content-center">
-                            <div class="imagen-form">
-                                <img src="${pageContext.request.contextPath}/images/Doc-fondo.png" class="img-doc img-fluid" alt="">
+                        <div class="col-12 d-flex justify-content-center">
+                            <div class="titulo">
+
+                                <h3 class="bienvenida">Bienvenido a Sistema de Seguimiento de Oficios</h3>
+
                             </div>
                         </div>
-
-                        <div class="col-6 d-flex justify-content-center">
-                            <div class="formulario px-5 py-5">
-                                <div class="body-form d-flex justify-content-center px-5-">
-                                    <form action="${pageContext.request.contextPath}/ServletDocArch" enctype="multipart/form-data" method="post">
-                                        <div class="mb-3">
-                                            <label for="folio" class="form-label">Folio</label>
-                                            <input id="folio" name="folio" type="text" class="form-control in-c" placeholder="Ingrese el folio del documento">
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="departamento" class="form-label">Departamento </label>
-                                            <select class="form-select in-c" aria-label="Default select example" id="departamento" name="departamento">
-                                                <option selected>Seleccionar</option>
-                                                <c:forEach items="${listadeptos}" var="depas" varStatus="status">
-                                                <option value="${depas.nombreDepto}">${depas.nombreDepto}</option>
-                                                </c:forEach>
-                                            </select>
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="Empleado" class="form-label">Empleado </label>
-                                            <select class="form-select in-c" aria-label="Default select example" id="empleado" name="empleado">
-                                                <option selected>Seleccionar</option>
-                                                <c:forEach items="${listaEmpl}" var="empleado" varStatus="status">
-                                                    <option value="${empleado.id_Empleado}">${empleado.nombre}</option>
-                                                </c:forEach>
-                                            </select>
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="asunto" class="form-label">Asunto</label>
-                                            <input type="text" id="asunto" name="asunto" class="form-control in-c" placeholder="Ingrese el asunto">
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="archivo" class="form-label">Subir archivo</label>
-                                            <input class="form-control-file form-control-sm in-c" id="archivo" name="archivo" type="file">
-                                        </div>
-                                        <div class="boton d-flex justify-content-center">
-                                            <button type="submit" class="btn btn-primary boton-enviar">Enviar</button>
-                                        </div>
-                                    </form>
+                        <div class="body">
+                            <div class="row justify-content-center">
+                                <div class="col-7 d-flex align-items-center justify-content-center">
+                                    <div class="cont-img">
+                                        <img src="${pageContext.request.contextPath}/images/jefe.png" class="imgBg img-fluid" alt="">
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -229,5 +148,3 @@
 <script src="${pageContext.request.contextPath}/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
-
-

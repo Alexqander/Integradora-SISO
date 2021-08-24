@@ -41,7 +41,7 @@ public class ServletLogin extends HttpServlet {
                 request.getRequestDispatcher("WEB-INF/views/Oficial/inicioOficial.jsp").forward(request,response);
 
                 }if (user.getRol().equals("Jefe de departamento")){
-                request.getRequestDispatcher("WEB-INF/views/superAdmin/inicioRepresentante.jsp").forward(request,response);
+                request.getRequestDispatcher("WEB-INF/views/repre/inicioRepresentante.jsp").forward(request,response);
                 }if (user.getRol().equals("Auxiliar de departamento")){
                 request.getRequestDispatcher("WEB-INF/views/Auxiliar/inicioAuxiliar.jsp").forward(request,response);
                 }else{

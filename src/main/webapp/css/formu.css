@@ -1,0 +1,38 @@
+.formulario{
+    color: var(--azulSiso);
+    font-family: var(--fuentePrincipal);
+    border-radius: 25px;
+    background: linear-gradient(225deg, #f0f0f0, #cacaca);
+    box-shadow:  -25px 25px 50px #bebebe,
+    25px -25px 50px #ffffff;
+    width: 500px;
+    height: 575px;
+}
+.titulo-formulario{
+    border-radius: 0px;
+
+    padding:15px 0 0 5px;
+    font-family: var(--fuentePrincipal);
+
+}
+.titul{
+    border-radius:25px ;
+    width:350px ;
+    height:50px ;
+    color: var(--gris);
+}
+.in-c{
+    border-radius:20px ;
+    border: none;
+    padding:5px 40px 5px 40px;
+}
+.boton-enviar{
+    padding: 5px 25px 5px 25px ;
+    border-radius:25px;
+    border: none;
+}
+
+.boton-enviar:hover{
+    background: var(--verdeAgua);
+
+}

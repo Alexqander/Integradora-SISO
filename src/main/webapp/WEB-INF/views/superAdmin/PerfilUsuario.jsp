@@ -145,12 +145,7 @@
                             </svg>
                         </div>
                             <p class="p-text">General</p></a></li>
-                        <li class="opciones "><a href="${pageContext.request.contextPath}/ServletRutes?to=views/superAdmin/Configuraciones.jsp"> <div class="icono-l">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-people" viewBox="0 0 16 16">
-                                <path d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1h8zm-7.978-1A.261.261 0 0 1 7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002a.274.274 0 0 1-.014.002H7.022zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0zM6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816zM4.92 10A5.493 5.493 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275zM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0zm3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/>
-                            </svg>
-                        </div>
-                            <p class="p-text">Usuarios</p> </a></li>
+
                     </ul>
                 </div>
 
@@ -178,7 +173,7 @@
                                 <div class="col d-flex justify-content-around align-items-center py-3">
                                     <img src="${pageContext.request.contextPath}/images/repUser.png" alt="" class="usrIcon1">
                                     <div class="datos">
-                                        <p>${employ.idNo}</p>
+                                        <p>${employ.id}</p>
                                         <p>${employ.nombre}</p>
                                         <p>${employ.id_cargo}</p>
                                     </div>
@@ -193,44 +188,44 @@
                                         <div class="body-form d-flex justify-content-center p-5">
                                             <form action="${pageContext.request.contextPath}/ServletEmpleados" method="post">
                                                 <input type="hidden" name="op" value="u">
-                                                <input type="hidden" name="ide" value="${employ.id}">
+                                                <input type="hidden" name="valor" value="${employed.id}">
                                                 <div class="row">
                                                     <div class="col-6 mb-3">
                                                         <label for="idempleado" class="form-label">Id Empleado</label>
-                                                        <input id="idempleado" name="idempleado" type="text" class="form-control in-c" value="${employ.id_Empleado}">
+                                                        <input id="idempleado" name="idempleado" type="text" aria-label="Disabled input example" disabled readonly class="form-control in-c" value="${employed.id_Empleado}">
                                                     </div>
                                                     <div class="col-6 mb-3">
                                                         <label for="nombre" class="form-label">Nombre</label>
-                                                        <input id="nombre" name="nombre" type="text" class="form-control in-c" value="${employ.nombre}">
+                                                        <input id="nombre" name="nombre" type="text" class="form-control in-c" value="${employed.nombre}">
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-6 mb-3">
                                                         <label for="apellidopaterno" class="form-label">Apellido Paterno</label>
-                                                        <input id="apellidopaterno" name="apellidopaterno" type="text" class="form-control in-c" value="${employ.apellido_paterno}">
+                                                        <input id="apellidopaterno" name="apellidopaterno" type="text" class="form-control in-c" value="${employed.apellido_paterno}">
                                                     </div>
                                                     <div class="col-6 mb-3">
                                                         <label for="apellidomaterno" class="form-label">Apellido Materno</label>
-                                                        <input id="apellidomaterno" name="apellidomaterno" type="text" class="form-control in-c" value="${employ.apellido_materno}">
+                                                        <input id="apellidomaterno" name="apellidomaterno" type="text" class="form-control in-c" value="${employed.apellido_materno}">
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-6 mb-3">
                                                         <label for="correo" class="form-label">Correo</label>
-                                                        <input id="correo" name="correo" type="text" class="form-control in-c" value="${employ.email}">
+                                                        <input id="correo" name="correo" type="text" class="form-control in-c" value="${employed.id_depto}">
                                                     </div>
                                                     <div class="col-6 mb-3">
                                                         <label for="contraseña" class="form-label">Contraseña</label>
-                                                        <input id="contraseña" name="contraseña" type="password" class="form-control in-c" value="${employ.contraseña}">
+                                                        <input id="contraseña" name="contraseña" type="password" class="form-control in-c" value="${employed.contraseña}">
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-6 mb-3">
                                                         <label for="cargo" class="form-label">Cargo </label>
                                                         <select id="cargo" name="cargo" class="form-select in-c" aria-label="Default select example">
-                                                            <option selected>${employ.id_cargo}</option>
+                                                            <option selected>${employed.id_cargo}</option>
 
-                                                            <c:forEach items="${listacargos}" var="cargo" varStatus="status">
+                                                            <c:forEach items="${listacargos}" var="cargo" >
                                                                 <option value="${cargo.nombre}">${cargo.nombre}</option>
                                                             </c:forEach>
                                                         </select>
@@ -238,8 +233,8 @@
                                                     <div class="col-6 mb-3">
                                                         <label for="departamento" class="form-label">Departamento </label>
                                                         <select id="departamento" name="departamento" class="form-select in-c" aria-label="Default select example" >
-                                                            <option selected>${employ.id_depto}</option>
-                                                            <c:forEach items="${listadeptos}" var="departamento" varStatus="status">
+                                                            <option selected></option>
+                                                            <c:forEach items="${listadeptos}" var="departamento" >
                                                                 <option value="${departamento.nombreDepto}">${departamento.nombreDepto}</option>
                                                             </c:forEach>
                                                         </select>

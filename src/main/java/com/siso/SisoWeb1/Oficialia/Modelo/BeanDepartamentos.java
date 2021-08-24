@@ -2,7 +2,7 @@ package com.siso.SisoWeb1.Oficialia.Modelo;
 
 public class BeanDepartamentos {
 
-    private int id_Departamento;
+    private int idepa;
     private String nombreDepto;
     private int numeroEdificio;
 
@@ -10,18 +10,18 @@ public class BeanDepartamentos {
 
     }
 
-    public BeanDepartamentos(int id_departamento, String nombreDepto, int numeroEdificio) {
-        this.id_Departamento = id_departamento;
+    public BeanDepartamentos(int idepa, String nombreDepto, int numeroEdificio) {
+        this.idepa = idepa;
         this.nombreDepto = nombreDepto;
         this.numeroEdificio = numeroEdificio;
     }
 
-    public int getId_departamento() {
-        return id_Departamento;
+    public int getIdepa() {
+        return idepa;
     }
 
-    public void setId_departamento(int id_departamento) {
-        this.id_Departamento = id_departamento;
+    public void setIdepa(int idepa) {
+        this.idepa = idepa;
     }
 
     public String getNombreDepto() {

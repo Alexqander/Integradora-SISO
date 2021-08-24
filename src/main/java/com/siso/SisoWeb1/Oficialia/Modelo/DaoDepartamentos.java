@@ -11,15 +11,13 @@ public class DaoDepartamentos {
     public List<BeanDepartamentos> findAll(){
         List<BeanDepartamentos> departmentList = new ArrayList<>();
         try (Connection con = ConnectionMysql.getConnection();
-
              Statement stm = con.createStatement();
              ResultSet rs = stm.executeQuery("select * from departamentos;");
-
         ){
 
             while (rs.next()){
                 BeanDepartamentos unDepartment = new BeanDepartamentos();
-                unDepartment.setId_departamento(rs.getInt("Id_Departamento"));
+                unDepartment.setIdepa(rs.getInt("Id_Departamento"));
                 unDepartment.setNombreDepto(rs.getString("NombreDepto"));
                 unDepartment.setNumeroEdificio(rs.getInt("NumeroEdificio"));
                 departmentList.add(unDepartment);
@@ -37,7 +35,7 @@ public class DaoDepartamentos {
 
         try (Connection Connection = ConnectionMysql.getConnection();) {
             try (PreparedStatement pstm = Connection.prepareStatement("INSERT INTO departamentos (Id_Departamento, NombreDepto, NumeroEdificio) VALUES (?,?,? );")) {
-                pstm.setInt(1, unDepartamento.getId_departamento());
+                pstm.setInt(1, unDepartamento.getIdepa());
                 pstm.setString(2, unDepartamento.getNombreDepto());
                 pstm.setInt(3, unDepartamento.getNumeroEdificio());
                 return pstm.executeUpdate() == 1;
@@ -50,20 +48,18 @@ public class DaoDepartamentos {
         return false;
     }
 
-    public BeanDepartamentos BuscarConId(int Id_Departamento){
+    public BeanDepartamentos BuscarConId(int identificador){
         BeanDepartamentos unDepartamento = new BeanDepartamentos();
         try (Connection Connection = ConnectionMysql.getConnection();) {
             try (PreparedStatement pstm = Connection.prepareStatement("select * from departamentos where Id_Departamento = ?; ");) {
 
-                pstm.setInt(1, Id_Departamento);
+                pstm.setInt(1, identificador);
                 ResultSet resultado = pstm.executeQuery();
                 while (resultado.next()){
-                    unDepartamento.setId_departamento(resultado.getInt("Id_Departamento"));
+                    unDepartamento.setIdepa(resultado.getInt("Id_Departamento"));
                     unDepartamento.setNombreDepto(resultado.getString("NombreDepto"));
-                    unDepartamento.setId_departamento(resultado.getInt("NumeroEdificio"));
+                    unDepartamento.setNumeroEdificio(resultado.getInt("NumeroEdificio"));
                 }
-
-
 
             }catch (SQLException exception){
                 exception.printStackTrace();
@@ -72,21 +68,22 @@ public class DaoDepartamentos {
             exception.printStackTrace();
 
         }
+        System.out.println(unDepartamento);
         return unDepartamento;
+
     }
 
 
-    public boolean ModificarDepartamento (BeanDepartamentos departamentosModificado ){
+    public boolean ModificarDepartamento (BeanDepartamentos depaUpdate ){
         try (Connection connection = ConnectionMysql.getConnection();) {
-            try (PreparedStatement pstm = connection.prepareStatement( "update departamentos set NombreDepto = ?, NumeroEdificio = ?, where Id_Departamento" );) {
-                pstm.setString(1,departamentosModificado.getNombreDepto());
-                pstm.setInt(2,departamentosModificado.getNumeroEdificio());
-                pstm.setInt(3,departamentosModificado.getId_departamento());
+            try (PreparedStatement pstm = connection.prepareStatement( "update departamentos set NombreDepto = ?, NumeroEdificio = ? where (Id_Departamento)" );) {
+                pstm.setString(1,depaUpdate.getNombreDepto());
+                pstm.setInt(2,depaUpdate.getNumeroEdificio());
+                pstm.setInt(3,depaUpdate.getIdepa());
                 return  pstm.executeUpdate()==1;
             }catch (SQLException ex){
                ex.printStackTrace();
             }
-
         }catch (SQLException ex){
             ex.printStackTrace();
         }
@@ -96,7 +93,8 @@ public class DaoDepartamentos {
     }
     public boolean deleteDepa (int id_dep ){
         try (Connection connection = ConnectionMysql.getConnection();) {
-            try (PreparedStatement pstm = connection.prepareStatement( "delete departamentos where Id_Departamento="+id_dep );) {
+            try (PreparedStatement pstm = connection.prepareStatement( "delete from departamentos where (Id_Departamento= ?)" );) {
+                pstm.setInt(1,id_dep);
                 pstm.executeUpdate();
             }catch (SQLException ex){
                 ex.printStackTrace();

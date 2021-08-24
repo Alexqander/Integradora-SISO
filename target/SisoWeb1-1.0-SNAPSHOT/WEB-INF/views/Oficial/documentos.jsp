@@ -18,9 +18,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="stylesheet" href="/BOOSTRAP5/css/bootstrap.min.css">
-  <link rel="stylesheet" href="/estilos/menus.css">
-  <link rel="stylesheet" href="/estilos/documentos.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/menus.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/documentos.css">
 
   <title>DOCUMENTOS</title>
 </head>
@@ -31,23 +31,10 @@
       <!--logo-->
 
       <div class="col-xl-2 col-md-3 col-sm-3">
-        <a href=""><img src="/images/siso-icono.png"class="img-siso" alt=""></a>
+        <a href="${pageContext.request.contextPath}/ServletRutes?to=views/Oficial/inicioOficial.jsp"><img src="${pageContext.request.contextPath}/images/siso-icono.png"class="img-siso" alt=""></a>
       </div>
-
-      <!--barra de busqueda-->
-      <div class="col-xl-6 col-md-7 col-sm-9 d-flex align-items-center">
-        <div class="barra-busqueda d-flex mx-5">
-          <div class="icono">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-              <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-            </svg>
-          </div>
-          <input type="serach" placeholder="buscar....">
-        </div>
-      </div>
-
       <!--botones y usuario-->
-      <div class="col-xl-4 col-md-2 col-sm-6 d-flex align-items-center justify-content-end">
+      <div class="col-xl-10 col-md-8 col-sm-8 d-flex align-items-center justify-content-end">
 
         <div class="config mx-2">
           <button class="btn" type="button" id="dropdown-1" data-bs-toggle="dropdown" aria-expanded="false">
@@ -59,7 +46,7 @@
 
           </button>
           <ul class="dropdown-menu" aria-labelledby="dropdown-1">
-            <li><a href="#" class="dropdown-item">Configuracion</a></li>
+            <li><a href="${pageContext.request.contextPath}" class="dropdown-item">Configuracion</a></li>
           </ul>
         </div>
 
@@ -67,19 +54,15 @@
           <button class="btn" type="button" id="dropdown-2" data-bs-toggle="dropdown" aria-expanded="false">
 
 
-            <img src="/images/usuario-icono.png" class="img-user" alt="">
+            <img src="${pageContext.request.contextPath}/images/usuario-icono.png" class="img-user" alt="">
           </button>
           <ul class="dropdown-menu" aria-labelledby="dropdown-2">
-            <li><a href="#" class="dropdown-item">Salir <svg class="mx-2 my-1" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+            <li><a href="${pageContext.request.contextPath}/ServletLogout" class="dropdown-item">Salir <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-right mx-2 my-1" viewBox="0 0 16 16">
               <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
               <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
             </svg></a></li>
-            <li><a href="#" class="dropdown-item">Perfil</a></li>
+            <li><a href="${pageContext.request.contextPath}/ServletRutes?to=" class="dropdown-item">Perfil</a></li>
           </ul>
-
-
-
-
         </div>
 
       </div>
@@ -103,14 +86,14 @@
         </a>
         <div class="collapse mt-3" id="menu-documentos">
           <ul class="men">
-            <li class="opciones"><a href=""><div class="icono-l">
+            <li class="opciones"><a href="${pageContext.request.contextPath}/ServletDocumentos?accion=3"><div class="icono-l">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-earmark-plus" viewBox="0 0 16 16">
                 <path d="M8 6.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V11a.5.5 0 0 1-1 0V9.5H6a.5.5 0 0 1 0-1h1.5V7a.5.5 0 0 1 .5-.5z"/>
                 <path d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5L14 4.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5h-2z"/>
               </svg>
             </div> <p class="p-text">Nuevo</p></a>
             </li>
-            <li class="opciones"><a href=""><div class="icono-l">
+            <li class="opciones"><a href="${pageContext.request.contextPath}/ServletDocumentos?accion=1"><div class="icono-l">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard" viewBox="0 0 16 16">
                 <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/>
                 <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/>
@@ -131,13 +114,8 @@
         <div class="collapse mt-3" id="menu-departamentos">
           <ul  class="men">
 
-            <li class="opciones "><a href=""> <div class="icono-l">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
-                <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
-              </svg>
-            </div>
-              <p class="p-text">Agregar</p></a></li>
-            <li class="opciones "><a href=""> <div class="icono-l">
+
+            <li class="opciones "><a href="${pageContext.request.contextPath}/ServletDepartamentos?"> <div class="icono-l">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-columns-gap" viewBox="0 0 16 16">
                 <path d="M6 1v3H1V1h5zM1 0a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1H1zm14 12v3h-5v-3h5zm-5-1a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1h-5zM6 8v7H1V8h5zM1 7a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1V8a1 1 0 0 0-1-1H1zm14-6v7h-5V1h5zm-5-1a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1h-5z"/>
               </svg>
@@ -145,9 +123,6 @@
               <p class="p-text">Consultar</p></a></li>
           </ul>
         </div>
-
-
-
 
         <a  href="#menu-config" type="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="menu-opciones">
           <div class="icono mx-2 my-2">
@@ -165,20 +140,17 @@
               </svg>
             </div>
               <p class="p-text">General</p></a></li>
-            <li class="opciones "><a href=""> <div class="icono-l">
+            <li class="opciones "><a href="${pageContext.request.contextPath}"> <div class="icono-l">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-people" viewBox="0 0 16 16">
                 <path d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1h8zm-7.978-1A.261.261 0 0 1 7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002a.274.274 0 0 1-.014.002H7.022zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0zM6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816zM4.92 10A5.493 5.493 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275zM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0zm3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/>
               </svg>
             </div>
-              <p class="p-text">Usuarios</p> </a></li>
+              <p class="p-text">Perfil</p> </a></li>
           </ul>
         </div>
 
 
       </nav>
-
-
-
 
     </aside>
 
@@ -227,7 +199,7 @@
                 <div class="col-5 justify-content-end">
                   <div class="botones">
                     <div class="nuevo d-flex justify-content-end">
-                      <a href="">
+                      <a href="${pageContext.request.contextPath}/ServletDocumentos?accion=2">
                         <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
                           <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
                         </svg>
@@ -250,46 +222,29 @@
                   <thead>
                   <tr class="table-dark">
                     <th>FOLIO</th>
-                    <th>FECHA</th>
+                    <th>ASUNTO</th>
                     <th>DEPARTAMENTO</th>
-                    <th>REPRESENTATE</th>
-                    <th>AUXILIAR</th>
+                    <th>EMPLEADO</th>
                     <th>ESTADO</th>
+                    <th>VER</th>
                   </tr>
                   </thead>
+
                   <tbody>
                   <tr>
-                    <td>3569852</td>
-                    <td>25/01/2021</td>
-                    <td>VENTAS</td>
-                    <td>0365</td>
-                    <td>AX5698</td>
+                    <c:forEach items="${listaDocumentos}" var="doc" varStatus="status">
+                    <td>${doc.folio}</td>
+                    <td>${doc.asunto}</td>
+                    <td>${doc.departamento}</td>
+                    <td>${doc.empleado}</td>
+
+                      <td><form method="get" action="${pageContext.request.contextPath}/ServletSalida">
+                        <input type="hidden" value="${doc.folio}" name="id">
+                        <button class="btn btn-success" type="submit">ver archivo</button>
+                      </form></td>
                     <td><span class="badge bg-primary">Pendiente</span></td>
                   </tr>
-                  <tr>
-                    <td>3569852</td>
-                    <td>25/01/2021</td>
-                    <td>VENTAS</td>
-                    <td>RP36952</td>
-                    <td>AX56511</td>
-                    <td><span class="badge bg-success">Respondido</span></td>
-                  </tr>
-                  <tr>
-                    <td>125632</td>
-                    <td>25/03/2021</td>
-                    <td>VENTAS</td>
-                    <td>RP0665</td>
-                    <td>AX53358</td>
-                    <td><span class="badge bg-success">Respondido</span></td>
-                  </tr>
-                  <tr>
-                    <td>8982112</td>
-                    <td>25/02/2021</td>
-                    <td>ADMINISTRACION</td>
-                    <td>RP968</td>
-                    <td>AX892</td>
-                    <td><span class="badge bg-primary">Pendiente</span></td>
-                  </tr>
+                  </c:forEach>
                   </tbody>
                 </table>
               </div>
@@ -308,6 +263,6 @@
   </div>
 </div>
 
-<script src="/BOOSTRAP5/js/bootstrap.bundle.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

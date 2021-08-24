@@ -6,11 +6,59 @@ import java.util.Date;
 public class BeanDocumentos {
 
     private int folio;
-    private int id_empleado;
+    private String asunto;
+    private String departamento;
+    private int empleado;
+    private String estadoOficio;
     private Date fechaIngreso;
     private Date fecfaRespuesta;
-    private int estadoOficio;
-    private String departamento;
+    private InputStream archivo;
+
+    public BeanDocumentos(){
+
+    }
+
+    public BeanDocumentos(int folio, String asunto, String departamento, int empleado, InputStream archivo) {
+        this.folio = folio;
+        this.asunto = asunto;
+        this.departamento = departamento;
+        this.empleado = empleado;
+        this.archivo = archivo;
+    }
+
+    public BeanDocumentos(int folio, String asunto, String departamento, int empleado) {
+        this.folio = folio;
+        this.asunto = asunto;
+        this.departamento = departamento;
+        this.empleado = empleado;
+    }
+
+    public BeanDocumentos(int folio, String asunto, String departamento) {
+        this.folio = folio;
+        this.asunto = asunto;
+        this.departamento = departamento;
+    }
+
+    public BeanDocumentos(int folio, String asunto, String departamento, int empleado, String estadoOficio, Date fechaIngreso, Date fecfaRespuesta) {
+        this.folio = folio;
+        this.asunto = asunto;
+        this.departamento = departamento;
+        this.empleado = empleado;
+        this.estadoOficio = estadoOficio;
+        this.fechaIngreso = fechaIngreso;
+        this.fecfaRespuesta = fecfaRespuesta;
+    }
+
+    public BeanDocumentos(int folio, String asunto, String departamento, int empleado, String estadoOficio, Date fechaIngreso, Date fecfaRespuesta, InputStream archivo) {
+        this.folio = folio;
+        this.asunto = asunto;
+        this.departamento = departamento;
+        this.empleado = empleado;
+        this.estadoOficio = estadoOficio;
+        this.fechaIngreso = fechaIngreso;
+        this.fecfaRespuesta = fecfaRespuesta;
+        this.archivo = archivo;
+    }
 
     public int getFolio() {
         return folio;
@@ -20,12 +68,36 @@ public class BeanDocumentos {
         this.folio = folio;
     }
 
-    public int getId_empleado() {
-        return id_empleado;
+    public String getAsunto() {
+        return asunto;
     }
 
-    public void setId_empleado(int id_empleado) {
-        this.id_empleado = id_empleado;
+    public void setAsunto(String asunto) {
+        this.asunto = asunto;
+    }
+
+    public String getDepartamento() {
+        return departamento;
+    }
+
+    public void setDepartamento(String departamento) {
+        this.departamento = departamento;
+    }
+
+    public int getEmpleado() {
+        return empleado;
+    }
+
+    public void setEmpleado(int empleado) {
+        this.empleado = empleado;
+    }
+
+    public String getEstadoOficio() {
+        return estadoOficio;
+    }
+
+    public void setEstadoOficio(String estadoOficio) {
+        this.estadoOficio = estadoOficio;
     }
 
     public Date getFechaIngreso() {
@@ -44,22 +116,6 @@ public class BeanDocumentos {
         this.fecfaRespuesta = fecfaRespuesta;
     }
 
-    public int getEstadoOficio() {
-        return estadoOficio;
-    }
-
-    public void setEstadoOficio(int estadoOficio) {
-        this.estadoOficio = estadoOficio;
-    }
-
-    public String getDepartamento() {
-        return departamento;
-    }
-
-    public void setDepartamento(String departamento) {
-        this.departamento = departamento;
-    }
-
     public InputStream getArchivo() {
         return archivo;
     }
@@ -67,23 +123,4 @@ public class BeanDocumentos {
     public void setArchivo(InputStream archivo) {
         this.archivo = archivo;
     }
-
-    private InputStream archivo;
-
-    public BeanDocumentos(){
-
-    }
-
-    public BeanDocumentos(int folio, int id_empleado, Date fechaIngreso, Date fecfaRespuesta, int estadoOficio, String departamento, InputStream archivo) {
-        this.folio = folio;
-        this.id_empleado = id_empleado;
-        this.fechaIngreso = fechaIngreso;
-        this.fecfaRespuesta = fecfaRespuesta;
-        this.estadoOficio = estadoOficio;
-        this.departamento = departamento;
-        this.archivo = archivo;
-    }
-
-
-
 }

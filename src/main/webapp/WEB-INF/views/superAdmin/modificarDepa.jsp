@@ -1,17 +1,15 @@
 <%--
   Created by IntelliJ IDEA.
   User: servi
-  Date: 20/08/2021
-  Time: 03:29 p. m.
+  Date: 23/08/2021
+  Time: 04:26 p. m.
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
 <c:if test="${sessionScope.login==null}">
     <c:redirect url="/index.jsp"></c:redirect>
 </c:if>
-<!DOCTYPE html>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,13 +21,14 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/menus.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/form.css">
 
-    <title>NUEVO-DEPTO</title>
+    <title>MODIFICAR DEPARTAMENTO</title>
 </head>
 <body>
 <header class="fixed-top">
     <div class="container-fluid">
         <div class="row">
             <!--logo-->
+
             <div class="col-xl-2 col-md-4 col-sm-4">
                 <a href="${pageContext.request.contextPath}/ServletRutes?to=views/superAdmin/inicioSuperAd.jsp"><img src="${pageContext.request.contextPath}/images/siso-icono.png"class="img-siso" alt=""></a>
             </div>
@@ -150,16 +149,18 @@
 
             </nav>
 
-
         </aside>
+
 
         <main class="col-10 col-md-9 bg-ligth px-3">
             <div class="contenido bg-ligth ">
                 <div class="head">
                     <div class="row titulo-formulario">
                         <div class="col-6">
+
                         </div>
                         <div class="col-6">
+
                         </div>
                     </div>
                 </div>
@@ -167,11 +168,7 @@
                     <div class="row d-flex flex-row justify-content-center mb-5 titulo-formulario ">
                         <div class="col-3 titul">
                             <div class="titul bg-primary d-flex justify-content-center align-items-center">
-                                <h4 my-0>Nuevo Departamento</h4>
-                            </div>
-
-                            <div class="alert alert-success" role="alert">
-                                ${mensaje}
+                                <h4 my-0> MODIFICAR DEPARTAMENTO</h4>
                             </div>
 
                         </div>
@@ -186,17 +183,26 @@
                         <div class="col-6 d-flex justify-content-center">
                             <div class="formulario">
                                 <div class="body-form d-flex justify-content-center align-items-center p-5">
-                                    <form action="${pageContext.request.contextPath}/ServletDepartamentos?op=c" method="post">
+                                    <form action="${pageContext.request.contextPath}/ServletDepartamentos" method="post">
+
+                                        <input type="hidden" name="op" value="u">
+                                        <input type="hidden" name="cursor" value="${department.idepa}">
                                         <div class="mb-3 mt-5">
                                             <label for="nombre" class="form-label">Nombre del Departamento </label>
-                                            <input type="text" class="form-control in-c" placeholder="Nombre del departamento.." id="nombre" name="nombre">
+                                            <input type="text" id="nombre" name="nombre" class="form-control in-c" value="${department.nombreDepto}" >
                                         </div>
                                         <div class="mb-3">
-                                            <label for="numeroEdificio" class="form-label">Edificio</label>
-                                            <input type="text" class="form-control in-c" placeholder="Ingrese el asunto" id="numeroEdificio" name="numeroEdificio">
+                                            <label for="edificio" class="form-label">Edificio</label>
+                                            <input type="text" id="edificio" name="edificio" class="form-control in-c" value="${department.numeroEdificio}">
                                         </div>
                                         <div class="boton d-flex justify-content-center mt-5">
-                                            <button type="submit" class="btn btn-primary boton-enviar">Registrar</button>
+                                            <button type="submit" class="btn btn-primary boton-enviar">Modificar</button>
+                                            <button type="reset" class="btn botones btn-outline-danger boton-enviar mx-2">
+                                                Cancelar
+                                            </button>
+                                        </div>
+                                        <div>
+
                                         </div>
                                     </form>
                                 </div>
@@ -204,12 +210,13 @@
                         </div>
                     </div>
                 </div>
-                <div class="footer">
-                </div>
+
             </div>
         </main>
+
     </div>
 </div>
+
 <script src="${pageContext.request.contextPath}/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

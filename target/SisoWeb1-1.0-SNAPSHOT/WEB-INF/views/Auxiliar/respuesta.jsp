@@ -13,9 +13,11 @@
 </c:if>
 <html>
 <head>
-    <title>Title</title>
+    <title>Responder</title>
 </head>
 <body>
+
+<h2>Respuesta a documento</h2>
 
 </body>
 </html>

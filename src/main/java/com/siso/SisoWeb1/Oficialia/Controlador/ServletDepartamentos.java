@@ -14,6 +14,10 @@ public class ServletDepartamentos extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         request.setCharacterEncoding("UTF-8");
+
+        DaoDepartamentos daoDepartamentos;
+        List<BeanDepartamentos> departamentosList;
+
         String op = request.getParameter("op")!= null ? request.getParameter("op"): "---";
         System.out.println(op);
 
@@ -21,9 +25,10 @@ public class ServletDepartamentos extends HttpServlet {
         switch (op){
             //Consultar Departamentos
             case"il":
-                DaoDepartamentos daoDepartamentos = new DaoDepartamentos();
-                List<BeanDepartamentos> departamentosList =daoDepartamentos.findAll() ;
-                request.setAttribute("listadeptos",departamentosList);
+                daoDepartamentos = new DaoDepartamentos();
+                departamentosList = daoDepartamentos.findAll();
+                request.setAttribute("listadepartamentos",departamentosList);
+                System.out.println(departamentosList);
                 request.getRequestDispatcher("WEB-INF/views/superAdmin/departamentos.jsp").forward(request,response);
 
                 break;
@@ -39,7 +44,7 @@ public class ServletDepartamentos extends HttpServlet {
                 DaoDepartamentos daoDepartamentos1 = new DaoDepartamentos();
                 boolean result = daoDepartamentos1.GuardarDepartamento(unDepartamento);
 
-                if (result){
+                if(result){
                     request.setAttribute("mensaje","Registro Correcto");
                 }else{
                     request.setAttribute("mensaje","Registro Correcto");
@@ -51,18 +56,20 @@ public class ServletDepartamentos extends HttpServlet {
 
             //buscar Un departamento
             case"r":
-                int idDep =0;
+                System.out.println(request.getParameter("nodep"));
+                int identificador =0;
                 try{
-                    String idString = request.getParameter("idDepar") != null ? request.getParameter("idDepar") : "0";
-                    idDep = Integer.parseInt(idString);
+                    String idString = request.getParameter("nodep") != null ? request.getParameter("nodep") : "0";
+                    identificador = Integer.parseInt(idString);
                 }catch (Exception ex){
                     ex.printStackTrace();
-                    idDep=0;
+                    identificador=0;
                 }
                 DaoDepartamentos dao = new DaoDepartamentos();
-                BeanDepartamentos unCourse = dao.BuscarConId(idDep);
-                request.setAttribute("course",unCourse);
-                request.getRequestDispatcher("/WEB-INF/views/superAdmin/infodepa.jsp").forward(request,response);
+                BeanDepartamentos undepa = dao.BuscarConId(identificador);
+                request.setAttribute("department",undepa);
+                System.out.println(undepa);
+                request.getRequestDispatcher("/WEB-INF/views/superAdmin/modificarDepa.jsp").forward(request,response);
 
 
                 break;
@@ -70,18 +77,63 @@ public class ServletDepartamentos extends HttpServlet {
             //modificar un Departamento
             case"u":
 
+                String numero = request.getParameter("cursor")!=null? request.getParameter("cursor"):"0" ;
+                String nombreD = request.getParameter("nombre")!=null? request.getParameter("nombre"):"--" ;
+                String edif = request.getParameter("edificio")!=null? request.getParameter("edifici"):"0" ;
+                System.out.println(numero);
+                System.out.println(nombreD);
+
+                try {
+                    int id = Integer.parseInt(numero);
+                    System.out.println("numero = "+ id);
+                    int edificio = Integer.parseInt(edif);
+                    System.out.println("el edificio es el " + edificio);
+                    BeanDepartamentos un1Departamento = new BeanDepartamentos(id,nombreD,edificio);
+                    System.out.println( "aqui vamos " + un1Departamento);
+                    DaoDepartamentos daoUpdates = new DaoDepartamentos();
+                    boolean resulta =daoUpdates.ModificarDepartamento(un1Departamento);
+                    if (resulta){
+                        List<BeanDepartamentos>departamentoslista = daoUpdates.findAll();
+                        request.setAttribute("listadepartamentos",departamentoslista);
+                        request.getRequestDispatcher("/WEB-INF/views/superAdmin/departamentos-Of.jsp").forward(request,response);
+
+                    }else {
+                        request.setAttribute("mensaje","Error al Actualizar");
+                        System.out.println("error al actualizar");
+                    }
+                }catch (Exception ex){
+                    ex.printStackTrace();
+                }
+                request.setAttribute("mensaje","Error al intentar parsear");
+                System.out.println("error al parsear");
+                System.out.println( "este es el valor" + numero);
+                request.getRequestDispatcher("/WEB-INF/views/superAdmin/inicioSuperAd.jsp").forward(request,response);
                 break;
 
             //eliminar un departamento
-            case "d":
-                String id_dep = request.getParameter("iddep");
-                int id_Dep =Integer.parseInt(id_dep);
-                DaoDepartamentos daoDepartamento = new DaoDepartamentos();
-                daoDepartamento.deleteDepa(id_Dep);
-                op = "il";
-                break;
+            case "de":
+                int idDepartamento =0;
+                String numeroDepartamento = request.getParameter("nodep")!=null? request.getParameter("nodep"):"0";
+                idDepartamento =Integer.parseInt(numeroDepartamento);
+
+                BeanDepartamentos undepartamento = new BeanDepartamentos();
+                DaoDepartamentos daoDepa = new DaoDepartamentos();
+                boolean res = daoDepa.deleteDepa(idDepartamento);
+
+                if (res){
+
+                    System.out.println("ERROR");
+
+                }else
+                    System.out.println("DEPARTAMENTO ELLIMINADO");
+                List<BeanDepartamentos>departamentoslista = daoDepa.findAll();
+                request.setAttribute("listadepartamentos",departamentoslista);
+                request.getRequestDispatcher("/WEB-INF/views/superAdmin/departamentos-Of.jsp").forward(request,response);
 
             default:
+
+                request.getRequestDispatcher("/WEB-INF/views/superAdmin/departamentos-Of.jsp").forward(request,response);
+
 
                 break;
 
@@ -90,8 +142,6 @@ public class ServletDepartamentos extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-        request.setCharacterEncoding("UTF-8");
 
         request.setCharacterEncoding("UTF-8");
         doGet(request,response);

@@ -77,18 +77,17 @@ public class ServletEmpleados extends HttpServlet {
 
                 int idEmploy = 0;
                 try{
-                    String idString = request.getParameter("ide")!=null? request.getParameter("ide") :"0";
+                    String idString = request.getParameter("valor")!=null? request.getParameter("valor") :"0";
                     idEmploy = Integer.parseInt(idString);
                     System.out.println(idEmploy);
                 }catch (Exception ex){
                     ex.printStackTrace();
                     idEmploy =0;
                 }
-                System.out.println("id"+ " -" +idEmploy);
 
                 DaoEmpleados dao = new DaoEmpleados();
-                BeanEmpleados unEmpleado = dao.BuscarConId(idEmploy);
-                request.setAttribute("employ",unEmpleado);
+                BeanEmpleados trabajador = dao.BuscarConId(idEmploy);
+                request.setAttribute("employed",trabajador);
 
                 daoDepartamentos = new DaoDepartamentos();
                 departamentosList = daoDepartamentos.findAll();
@@ -104,8 +103,8 @@ public class ServletEmpleados extends HttpServlet {
             //modificar un empleado
             case"u":
 
-                String idE = request.getParameter("ide")!= null ? request.getParameter("ide"): "0" ;
-                String idEmpleado1 = request.getParameter("idempleado")!= null ? request.getParameter("idempleado"): "" ;
+                String idE = request.getParameter("valor")!= null ? request.getParameter("valor"): "0" ;
+                String idEmple = request.getParameter("idempleado")!= null ? request.getParameter("idempleado"): "" ;
                 String cargo1 = request.getParameter("cargo")!= null ? request.getParameter("cargo") : "";
                 String depto1 =request.getParameter("departamento")!=null? request.getParameter("departamento") :"";
                 String contraseña1 =request.getParameter("contraseña")!=null? request.getParameter("contraseña") :"";
@@ -113,24 +112,24 @@ public class ServletEmpleados extends HttpServlet {
                 String apellidoPaterno1 =request.getParameter("apellidopaterno")!=null? request.getParameter("apellidopaterno") :"";
                 String apellidoMaterno1 =request.getParameter("apellidomaterno")!=null? request.getParameter("apellidomaterno") :"";
                 String email1 =request.getParameter("correo")!=null? request.getParameter("correo") :"";
-
                 try {
-                    BeanEmpleados unemploy = new BeanEmpleados(Integer.parseInt(idE),Integer.parseInt(idEmpleado1),cargo1,depto1,contraseña1,nombre1,apellidoPaterno1,apellidoMaterno1,email1 );
+                    int idep =Integer.parseInt(idE);
+                    int idePer = Integer.parseInt(idEmple);
+                    BeanEmpleados unemploy = new BeanEmpleados(idep,idePer,cargo1,depto1,contraseña1,nombre1,apellidoPaterno1,apellidoMaterno1,email1 );
+                    System.out.println(" este es el empleado" + unemploy);
                     DaoEmpleados daoUpdate =new  DaoEmpleados();
                     boolean resulta = daoUpdate.modificarUsuario(unemploy);
 
                     if (resulta){
                         request.setAttribute("mensaje","Actualizacion Correcta");
                         System.out.println("registro modificado");
+                        List<BeanEmpleados> empleadosList = daoUpdate.findAll();
+                        request.setAttribute("listaempleados",empleadosList);
+                        request.getRequestDispatcher("/WEB-INF/views/superAdmin/listaUsuarios.jsp").forward(request,response);
                     }else{
                         request.setAttribute("mensaje","Error al Actualizar");
                         System.out.println("error al actualizar");
                     }
-
-                    List<BeanEmpleados> empleadosList = daoUpdate.findAll();
-                    request.setAttribute("listaempleados",empleadosList);
-
-                    request.getRequestDispatcher("/WEB-INF/views/superAdmin/inicioSuperAd.jsp").forward(request,response);
                 }catch (Exception ex){
                     ex.printStackTrace();
 
@@ -138,19 +137,30 @@ public class ServletEmpleados extends HttpServlet {
 
                 request.setAttribute("mensaje","Error al intentar parsear");
                 System.out.println("error al parsear");
-                request.getRequestDispatcher("/WEB-INF/views/superAdmin/listaUsuarios.jsp").forward(request,response);
+                request.getRequestDispatcher("/WEB-INF/views/superAdmin/inicioSuperAd.jsp").forward(request,response);
 
                 break;
 
             //eliminar un empleado
             case "d":
 
-                String id_emple = request.getParameter("ide");
-                int id_Emple =Integer.parseInt(id_emple);
-                DaoEmpleados daoEmpleado1 = new DaoEmpleados();
-                daoEmpleado1.deleteUser(id_Emple);
+                int id_Emple =0;
+                String id_emple = request.getParameter("valor");
+                id_Emple =Integer.parseInt(id_emple);
 
-                System.out.println("usuario eliminado");
+                BeanEmpleados unEmpleador = new BeanEmpleados();
+                DaoEmpleados daoEmpleado1 = new DaoEmpleados();
+                boolean resultado = daoEmpleado1.deleteUser(id_Emple);
+
+                if (resultado){
+
+                    System.out.println("ERROR");
+
+                }else
+                    System.out.println("USUARIO ELIMINADO");
+                  List<BeanEmpleados> empleadosLista = daoEmpleado1.findAll();
+                 request.setAttribute("listaempleados",empleadosLista);
+                 request.getRequestDispatcher("/WEB-INF/views/superAdmin/listaUsuarios.jsp").forward(request,response);
 
                 break;
 
@@ -160,7 +170,7 @@ public class ServletEmpleados extends HttpServlet {
                 DaoEmpleados daoEmpleados2 =new DaoEmpleados();
                 List<BeanEmpleados> empleadosList = daoEmpleados2.findAll();
                 request.setAttribute("listaempleados",empleadosList);
-                System.out.println();
+                System.out.println(empleadosList);
                 request.getRequestDispatcher("WEB-INF/views/superAdmin/listaUsuarios.jsp").forward(request,response);
                 break;
             default:

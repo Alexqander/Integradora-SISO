@@ -4,9 +4,11 @@
     <option name="state">
       <map>
         <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/Auxiliar/VistaDepartamentos.jsp" value="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/Auxiliar" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/repre/VistaDepartamento.jsp" value="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/repre" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/superAdmin/CrearUsuario.jsp" value="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/superAdmin" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/superAdmin/PerfilUsuario.jsp" value="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/superAdmin" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/superAdmin/crearDepa.jsp" value="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/superAdmin" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/superAdmin/departamentos.jsp" value="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/superAdmin" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/superAdmin/listaUsuarios.jsp" value="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/superAdmin" />
       </map>
     </option>
