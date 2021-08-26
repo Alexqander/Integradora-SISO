@@ -50,7 +50,11 @@ public class ServletDepartamentos extends HttpServlet {
                     request.setAttribute("mensaje","Registro Correcto");
 
                 }
-                request.getRequestDispatcher("WEB-INF/views/superAdmin/crearDepa.jsp").forward(request,response);
+
+                daoDepartamentos = new DaoDepartamentos();
+                departamentosList = daoDepartamentos.findAll();
+                request.setAttribute("listadepartamentos",departamentosList);
+                request.getRequestDispatcher("WEB-INF/views/superAdmin/departamentos.jsp").forward(request,response);
 
                 break;
 
@@ -79,7 +83,7 @@ public class ServletDepartamentos extends HttpServlet {
 
                 String numero = request.getParameter("cursor")!=null? request.getParameter("cursor"):"0" ;
                 String nombreD = request.getParameter("nombre")!=null? request.getParameter("nombre"):"--" ;
-                String edif = request.getParameter("edificio")!=null? request.getParameter("edifici"):"0" ;
+                String edif = request.getParameter("edificio")!=null? request.getParameter("edificio"):"0" ;
                 System.out.println(numero);
                 System.out.println(nombreD);
 
@@ -95,7 +99,8 @@ public class ServletDepartamentos extends HttpServlet {
                     if (resulta){
                         List<BeanDepartamentos>departamentoslista = daoUpdates.findAll();
                         request.setAttribute("listadepartamentos",departamentoslista);
-                        request.getRequestDispatcher("/WEB-INF/views/superAdmin/departamentos-Of.jsp").forward(request,response);
+                        request.getRequestDispatcher("/WEB-INF/views/superAdmin/departamentos.jsp").forward(request,response);
+                        break;
 
                     }else {
                         request.setAttribute("mensaje","Error al Actualizar");
@@ -128,11 +133,11 @@ public class ServletDepartamentos extends HttpServlet {
                     System.out.println("DEPARTAMENTO ELLIMINADO");
                 List<BeanDepartamentos>departamentoslista = daoDepa.findAll();
                 request.setAttribute("listadepartamentos",departamentoslista);
-                request.getRequestDispatcher("/WEB-INF/views/superAdmin/departamentos-Of.jsp").forward(request,response);
+                request.getRequestDispatcher("/WEB-INF/views/superAdmin/departamentos.jsp").forward(request,response);
 
             default:
 
-                request.getRequestDispatcher("/WEB-INF/views/superAdmin/departamentos-Of.jsp").forward(request,response);
+                request.getRequestDispatcher("/WEB-INF/views/superAdmin/departamentos.jsp").forward(request,response);
 
 
                 break;

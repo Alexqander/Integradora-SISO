@@ -20,6 +20,7 @@
 
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/menus.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/formad.css">
 
     <title>HOME</title>
 </head>
@@ -148,23 +149,26 @@
 
                         <div class="col-6 d-flex justify-content-center">
                             <div class="formulario">
-                                <div class="body-form d-flex justify-content-center p-5">
-                                    <form action="${pageContext.request.contextPath}/ServletDocumentos">
-                                        <input type="hidden" name="accion" value="r3">
-                                        <div class="mb-3">
+                                <div class="body-form d-flex justify-content-center p-5 mt-5">
+                                    <form action="${pageContext.request.contextPath}/ServletAsignaciones">
+                                        <input type="hidden" name="accion" value="5">
+                                        <input type="hidden" name="estado" value="Asignado">
+                                        <input type="hidden" name="folio" value="${idocument}">
+                                        <div class="mb-4">
                                             <label for="folio" class="form-label">Folio</label>
-                                            <input id="folio" name="folio" value="5565" type="text" class="form-control in-c" aria-label="Disabled input example" disabled readonly>
+                                            <input id="folio" name="folio" value="${idocument}" type="text" class="form-control in-c" aria-label="Disabled input example" disabled readonly>
                                         </div>
-                                        <div class="mb-3">
+                                        <div class="mb-4">
                                             <label for="auxiliar" class="form-label">Auxiliares </label>
                                             <select class="form-select in-c" aria-label="Default select example" id="auxiliar" name="auxiliar">
+
                                                 <option selected>Seleccionar</option>
-                                                <option value="1">juan</option>
-                                                <option value="2">Alex</option>
-                                                <option value="3">Susana</option>
+                                                <c:forEach items="${auxiliaresLista}" var="auxi" varStatus="status">
+                                                <option value="${auxi.id_Empleado}">${auxi.nombre}</option>
+                                                </c:forEach>
                                             </select>
                                         </div>
-                                        <div class="boton d-flex justify-content-center">
+                                        <div class="boton d-flex justify-content-center mt-5">
                                             <button type="submit" class="btn btn-primary boton-enviar">Enviar</button>
                                         </div>
                                     </form>

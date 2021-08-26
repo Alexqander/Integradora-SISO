@@ -46,7 +46,18 @@ public class ServletDocumentos extends HttpServlet {
             case "1":
 
                 daoDocumentos = new DaoDocumentos();
+                int todos =daoDocumentos.todosDocus();
+                request.setAttribute("todoslos",todos);
+
+                daoDocumentos = new DaoDocumentos();
+                int totalDoc =daoDocumentos.docsAssi("Asignado");
+                int docRes = daoDocumentos.docsAssi("Respondido");
+                request.setAttribute("docRespon",docRes);
+                request.setAttribute("docAsi",totalDoc);
+
+                daoDocumentos = new DaoDocumentos();
                 documentosList = daoDocumentos.findAll();
+
                 request.setAttribute("listaDocumentos", documentosList);
                 request.getRequestDispatcher("WEB-INF/views/Oficial/documentos.jsp").forward(request, response);
                 break;
@@ -67,8 +78,6 @@ public class ServletDocumentos extends HttpServlet {
             case "3":
 
 
-
-
                 String folio =request.getParameter("folio");
                 String depart=request.getParameter("departamento");
                 String  asunto=request.getParameter("asunto");
@@ -82,6 +91,12 @@ public class ServletDocumentos extends HttpServlet {
                 boolean result = documentos.newDoc(unDoc);
                 if (result){
 
+                    daoDocumentos = new DaoDocumentos();
+                    int totalDoc1 =daoDocumentos.docsAssi("Asignado");
+                    int docRes1 = daoDocumentos.docsAssi("Respondido");
+                    request.setAttribute("docRespon",docRes1);
+                    request.setAttribute("docAsi",totalDoc1);
+
                     System.out.println("FELICIDADES");
                     daoDocumentos = new DaoDocumentos();
                     documentosList = daoDocumentos.findAll();
@@ -91,7 +106,14 @@ public class ServletDocumentos extends HttpServlet {
                     System.out.println("ERROR");
                 }
 
-
+                daoDocumentos = new DaoDocumentos();
+                int todos1 =daoDocumentos.todosDocus();
+                request.setAttribute("todoslos",todos1);
+                daoDocumentos = new DaoDocumentos();
+                int totalDoc1 =daoDocumentos.docsAssi("Asignado");
+                int docRes1 = daoDocumentos.docsAssi("Respondido");
+                request.setAttribute("docRespon",docRes1);
+                request.setAttribute("docAsi",totalDoc1);
 
                 daoDocumentos = new DaoDocumentos();
                 documentosList = daoDocumentos.findAll();
@@ -101,6 +123,15 @@ public class ServletDocumentos extends HttpServlet {
             //Modificar documento
             case "4":
 
+                daoDocumentos = new DaoDocumentos();
+                int todos2 =daoDocumentos.todosDocus();
+                request.setAttribute("todoslos",todos2);
+
+                daoDocumentos = new DaoDocumentos();
+                int totalDoc2 =daoDocumentos.docsAssi("Asignado");
+                int docRes2 = daoDocumentos.docsAssi("Respondido");
+                request.setAttribute("docRespon",docRes2);
+                request.setAttribute("docAsi",totalDoc2);
                 request.getRequestDispatcher("WEB-INF/views/Oficial/documentos.jsp").forward(request, response);
                 break;
 
@@ -113,6 +144,8 @@ public class ServletDocumentos extends HttpServlet {
             //Ver el archivo
 
             case "6":
+
+
                 break;
 
             //Acciones para el auxiliar
@@ -138,37 +171,6 @@ public class ServletDocumentos extends HttpServlet {
 
 
             //CONSULTAR SUS DOCUMENTOS
-            case "r1":
-
-
-                request.getRequestDispatcher("WEB-INF/views/repre/VistaDepartamento.jsp").forward(request, response);
-                break;
-
-
-                //ASIGNAR UN DOCUMENTO A UN AUXILIAR DE SU DEPARTAMENTO
-                //PRIMERO CARGO LA LISTA DE AUXILIARES DEL DEPARTAMENTO PARA ASIGNARLE EL OFICIO Y DIRECCIONO AL FORMULARIO
-            case "r2":
-                String codigo = request.getParameter("codDoc");
-                int fol = Integer.parseInt(codigo);
-
-
-                request.setAttribute("folio",fol);
-                request.getRequestDispatcher("WEB-INF/views/repre/asignar.jsp").forward(request,response);
-                break;
-
-
-                //MANDO LOS DATOS PARA EJECUTAR LA ASIGNACION
-            case "r3":
-                String folid =request.getParameter("folio");
-                String aux = request.getParameter("auxiliar");
-                int folioId = Integer.parseInt(folid);
-                int idEmpleado = Integer.parseInt(aux);
-
-
-
-
-
-                break;
 
             default:
 

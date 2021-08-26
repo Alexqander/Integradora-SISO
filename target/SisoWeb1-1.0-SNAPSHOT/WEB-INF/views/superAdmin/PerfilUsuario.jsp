@@ -173,9 +173,9 @@
                                 <div class="col d-flex justify-content-around align-items-center py-3">
                                     <img src="${pageContext.request.contextPath}/images/repUser.png" alt="" class="usrIcon1">
                                     <div class="datos">
-                                        <p>${employ.id}</p>
-                                        <p>${employ.nombre}</p>
-                                        <p>${employ.id_cargo}</p>
+                                        <p>${employe.id}</p>
+                                        <p>${employe.nombre}</p>
+                                        <p>${employe.id_cargo}</p>
                                     </div>
                                 </div>
                             </div>
@@ -189,6 +189,7 @@
                                             <form action="${pageContext.request.contextPath}/ServletEmpleados" method="post">
                                                 <input type="hidden" name="op" value="u">
                                                 <input type="hidden" name="valor" value="${employed.id}">
+                                                <input type="hidden" name="valor1" value="${employed.id_Empleado}">
                                                 <div class="row">
                                                     <div class="col-6 mb-3">
                                                         <label for="idempleado" class="form-label">Id Empleado</label>
@@ -212,7 +213,7 @@
                                                 <div class="row">
                                                     <div class="col-6 mb-3">
                                                         <label for="correo" class="form-label">Correo</label>
-                                                        <input id="correo" name="correo" type="text" class="form-control in-c" value="${employed.id_depto}">
+                                                        <input id="correo" name="correo" type="text" class="form-control in-c" value="${employed.email}">
                                                     </div>
                                                     <div class="col-6 mb-3">
                                                         <label for="contraseña" class="form-label">Contraseña</label>
@@ -233,7 +234,7 @@
                                                     <div class="col-6 mb-3">
                                                         <label for="departamento" class="form-label">Departamento </label>
                                                         <select id="departamento" name="departamento" class="form-select in-c" aria-label="Default select example" >
-                                                            <option selected></option>
+                                                            <option selected>${employed.id_depto}</option>
                                                             <c:forEach items="${listadeptos}" var="departamento" >
                                                                 <option value="${departamento.nombreDepto}">${departamento.nombreDepto}</option>
                                                             </c:forEach>

@@ -8,18 +8,20 @@ public class BeanUsuarios {
     private String password;
     private String rol;
     private String nombre;
+    private String depa;
 
     public BeanUsuarios(){
 
     }
 
-    public BeanUsuarios(int iduser, int id_empleadoU, String username, String password, String rol, String nombre) {
+    public BeanUsuarios(int iduser, int id_empleadoU, String username, String password, String rol, String nombre, String depa) {
         this.iduser = iduser;
         this.id_empleadoU = id_empleadoU;
         this.username = username;
         this.password = password;
         this.rol = rol;
         this.nombre = nombre;
+        this.depa = depa;
     }
 
     public int getIduser() {
@@ -68,5 +70,13 @@ public class BeanUsuarios {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public String getDepa() {
+        return depa;
+    }
+
+    public void setDepa(String depa) {
+        this.depa = depa;
     }
 }

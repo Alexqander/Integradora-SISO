@@ -24,7 +24,7 @@
 
     <title>VISTA DEPARTAMENTO</title>
 </head>
-<body>
+<html>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -136,7 +136,7 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="titulo">
-                                <h5>Nombre del Departamento</h5>
+                                <h5>${sessionScope.departamento}</h5>
                             </div>
 
                         </div>
@@ -144,14 +144,15 @@
                 </div>
                 <div class="body-usuarios">
                     <div class="row">
-                        <div class="col d-flex align-items-center justify-content-between my-4 encabezado-archivos">
+                        <div class="col-2 d-flex align-items-center justify-content-between my-4 encabezado-archivos">
                             <div class="titluo px-3">
                                 <h5>Auxiliares del Departamento</h5>
                             </div>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-2">
+                        <c:forEach items="${auxiliaresLista}" var="aux" varStatus="status">
+                        <div class="col-2 mx-3">
                             <div class="caja-aux user">
                                 <div class="icono-aux">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-people" viewBox="0 0 16 16">
@@ -159,11 +160,11 @@
                                     </svg>
                                 </div>
                                 <div class="ax">
-                                    <span class="badge bg-primary">Cristian</span>
+                                    <span class="badge bg-primary">${aux.nombre}</span>
                                 </div>
-
                             </div>
                         </div>
+                        </c:forEach>
                     </div>
                 </div>
 
@@ -179,37 +180,45 @@
 
                     <div class="row">
                         <div class="col">
-
+                            <c:forEach items="${listaDepa}" var="dorp" varStatus="status">
                             <div class="elemento-lista">
                                 <ol class="list-group ">
+
                                     <li class="d-flex align-items-center justify-content-between px-2">
                                         <div class="ms-2 me-auto">
-                                            <div class="fw-bold">Nombre del Documentos</div>
-                                            <p class="mensaje">Documento de pruebas</p>
+                                            <div class="fw-bold">${dorp.asunto}</div>
+                                            <p class="mensaje">${dorp.folio}</p>
                                         </div>
-                                        <div class="boton-descarga">
-                                            <button class="btn btn-primary">descargar</button>
-                                        </div>
+                                        <form action="${pageContext.request.contextPath}/ServletSalida" method="post">
+                                            <input type="hidden" value="${dorp.folio}" name="id">
+                                            <input type="hidden" name="accion" value="4">
 
+
+                                        <div class="boton-descarga">
+                                            <button class="btn btn-primary">Ver</button>
+                                        </div>
+                                        </form>
                                         <div class="boton-asignar mx-2">
-                                            <form action="${pageContext.request.contextPath}/ServletDocumentos?accion=r2" method="get">
-                                                <input type="hidden" name="accion" value="r2">
-                                                <input type="hidden" name="codDoc" value="2533">
-                                            <button type="submit" class="btn btn-success">asignar</button>
+                                            <form action="${pageContext.request.contextPath}/ServletAsignaciones" method="get">
+                                                <input type="hidden" name="accion" value="4">
+                                                <input type="hidden" name="ij" value="${sessionScope.idUsuario}">
+                                                <input type="hidden" name="codDoc" value="${dorp.folio}">
+                                                <input type="hidden" name="depa" value="${sessionScope.departamento}">
+                                                <button type="submit" class="btn btn-success">asignar</button>
                                             </form>
                                         </div>
                                     </li>
                                 </ol>
                             </div>
+                            </c:forEach>
                         </div>
                     </div>
                 </div>
             </div>
         </main>
-
     </div>
 </div>
 
-<script src="/BOOSTRAP5/js/bootstrap.bundle.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

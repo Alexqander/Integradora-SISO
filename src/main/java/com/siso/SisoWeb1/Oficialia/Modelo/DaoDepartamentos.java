@@ -76,7 +76,7 @@ public class DaoDepartamentos {
 
     public boolean ModificarDepartamento (BeanDepartamentos depaUpdate ){
         try (Connection connection = ConnectionMysql.getConnection();) {
-            try (PreparedStatement pstm = connection.prepareStatement( "update departamentos set NombreDepto = ?, NumeroEdificio = ? where (Id_Departamento)" );) {
+            try (PreparedStatement pstm = connection.prepareStatement( "update departamentos set NombreDepto = ?, NumeroEdificio = ? where (Id_Departamento=?)" );) {
                 pstm.setString(1,depaUpdate.getNombreDepto());
                 pstm.setInt(2,depaUpdate.getNumeroEdificio());
                 pstm.setInt(3,depaUpdate.getIdepa());

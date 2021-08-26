@@ -169,11 +169,6 @@
                             <div class="titul bg-primary d-flex justify-content-center align-items-center">
                                 <h4 my-0>Nuevo Departamento</h4>
                             </div>
-
-                            <div class="alert alert-success" role="alert">
-                                ${mensaje}
-                            </div>
-
                         </div>
                     </div>
                     <div class="row">

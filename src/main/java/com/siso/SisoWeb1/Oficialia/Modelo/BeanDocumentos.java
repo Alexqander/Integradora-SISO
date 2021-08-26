@@ -1,6 +1,7 @@
 package com.siso.SisoWeb1.Oficialia.Modelo;
 
 import java.io.InputStream;
+import java.sql.Blob;
 import java.util.Date;
 
 public class BeanDocumentos {
@@ -10,13 +11,36 @@ public class BeanDocumentos {
     private String departamento;
     private int empleado;
     private String estadoOficio;
-    private Date fechaIngreso;
-    private Date fecfaRespuesta;
     private InputStream archivo;
+    private String nombreArchivo;
+    private Blob archivo1;
+
+
 
     public BeanDocumentos(){
 
     }
+
+
+    public BeanDocumentos(int folio, String asunto, String departamento, String nombreArchivo, InputStream archivo) {
+        this.folio = folio;
+        this.asunto = asunto;
+        this.departamento = departamento;
+        this.nombreArchivo = nombreArchivo;
+        this.archivo = archivo;
+    }
+
+    public BeanDocumentos(int folio, int empleado, String estadoOficio) {
+        this.folio = folio;
+        this.empleado = empleado;
+        this.estadoOficio =estadoOficio;
+    }
+
+    public BeanDocumentos(int folio, String asunto) {
+        this.folio = folio;
+        this.asunto = asunto;
+    }
+
 
     public BeanDocumentos(int folio, String asunto, String departamento, int empleado, InputStream archivo) {
         this.folio = folio;
@@ -39,26 +63,8 @@ public class BeanDocumentos {
         this.departamento = departamento;
     }
 
-    public BeanDocumentos(int folio, String asunto, String departamento, int empleado, String estadoOficio, Date fechaIngreso, Date fecfaRespuesta) {
-        this.folio = folio;
-        this.asunto = asunto;
-        this.departamento = departamento;
-        this.empleado = empleado;
-        this.estadoOficio = estadoOficio;
-        this.fechaIngreso = fechaIngreso;
-        this.fecfaRespuesta = fecfaRespuesta;
-    }
 
-    public BeanDocumentos(int folio, String asunto, String departamento, int empleado, String estadoOficio, Date fechaIngreso, Date fecfaRespuesta, InputStream archivo) {
-        this.folio = folio;
-        this.asunto = asunto;
-        this.departamento = departamento;
-        this.empleado = empleado;
-        this.estadoOficio = estadoOficio;
-        this.fechaIngreso = fechaIngreso;
-        this.fecfaRespuesta = fecfaRespuesta;
-        this.archivo = archivo;
-    }
+
 
     public int getFolio() {
         return folio;
@@ -100,27 +106,27 @@ public class BeanDocumentos {
         this.estadoOficio = estadoOficio;
     }
 
-    public Date getFechaIngreso() {
-        return fechaIngreso;
-    }
-
-    public void setFechaIngreso(Date fechaIngreso) {
-        this.fechaIngreso = fechaIngreso;
-    }
-
-    public Date getFecfaRespuesta() {
-        return fecfaRespuesta;
-    }
-
-    public void setFecfaRespuesta(Date fecfaRespuesta) {
-        this.fecfaRespuesta = fecfaRespuesta;
-    }
-
     public InputStream getArchivo() {
         return archivo;
     }
 
     public void setArchivo(InputStream archivo) {
         this.archivo = archivo;
+    }
+
+    public String getNombreArchivo() {
+        return nombreArchivo;
+    }
+
+    public void setNombreArchivo(String nombreArchivo) {
+        this.nombreArchivo = nombreArchivo;
+    }
+
+    public Blob getArchivo1() {
+        return archivo1;
+    }
+
+    public void setArchivo1(Blob archivo1) {
+        this.archivo1 = archivo1;
     }
 }

@@ -1,6 +1,8 @@
 package com.siso.SisoWeb1.Oficialia.Controlador;
 
+import com.siso.SisoWeb1.Oficialia.Modelo.BeanEmpleados;
 import com.siso.SisoWeb1.Oficialia.Modelo.BeanUsuarios;
+import com.siso.SisoWeb1.Oficialia.Modelo.DaoEmpleados;
 import com.siso.SisoWeb1.Oficialia.Modelo.DaoUsuarios;
 
 import javax.servlet.*;
@@ -33,6 +35,8 @@ public class ServletLogin extends HttpServlet {
                 session.setAttribute("login", "ok");
                 session.setAttribute("nameUser",user.getNombre());
                 session.setAttribute("rol", user.getRol());
+                session.setAttribute("idUsuario",user.getId_empleadoU());
+                session.setAttribute("departamento",user.getDepa());
 
                 if (user.getRol().equals("Admin")){
 
@@ -41,6 +45,12 @@ public class ServletLogin extends HttpServlet {
                 request.getRequestDispatcher("WEB-INF/views/Oficial/inicioOficial.jsp").forward(request,response);
 
                 }if (user.getRol().equals("Jefe de departamento")){
+
+                int empl = user.getIduser();
+                DaoEmpleados dao = new DaoEmpleados();
+                BeanEmpleados jefe = dao.BuscarConId(empl);
+                request.setAttribute("empleado",jefe);
+
                 request.getRequestDispatcher("WEB-INF/views/repre/inicioRepresentante.jsp").forward(request,response);
                 }if (user.getRol().equals("Auxiliar de departamento")){
                 request.getRequestDispatcher("WEB-INF/views/Auxiliar/inicioAuxiliar.jsp").forward(request,response);

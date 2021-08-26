@@ -104,7 +104,9 @@ public class ServletEmpleados extends HttpServlet {
             case"u":
 
                 String idE = request.getParameter("valor")!= null ? request.getParameter("valor"): "0" ;
-                String idEmple = request.getParameter("idempleado")!= null ? request.getParameter("idempleado"): "" ;
+                System.out.println(idE);
+                String idEmple = request.getParameter("valor1")!= null ? request.getParameter("valor1"): "la cagaste" ;
+                System.out.println(idEmple);
                 String cargo1 = request.getParameter("cargo")!= null ? request.getParameter("cargo") : "";
                 String depto1 =request.getParameter("departamento")!=null? request.getParameter("departamento") :"";
                 String contraseña1 =request.getParameter("contraseña")!=null? request.getParameter("contraseña") :"";
@@ -114,6 +116,7 @@ public class ServletEmpleados extends HttpServlet {
                 String email1 =request.getParameter("correo")!=null? request.getParameter("correo") :"";
                 try {
                     int idep =Integer.parseInt(idE);
+                    System.out.println();
                     int idePer = Integer.parseInt(idEmple);
                     BeanEmpleados unemploy = new BeanEmpleados(idep,idePer,cargo1,depto1,contraseña1,nombre1,apellidoPaterno1,apellidoMaterno1,email1 );
                     System.out.println(" este es el empleado" + unemploy);
@@ -125,7 +128,8 @@ public class ServletEmpleados extends HttpServlet {
                         System.out.println("registro modificado");
                         List<BeanEmpleados> empleadosList = daoUpdate.findAll();
                         request.setAttribute("listaempleados",empleadosList);
-                        request.getRequestDispatcher("/WEB-INF/views/superAdmin/listaUsuarios.jsp").forward(request,response);
+                        request.getRequestDispatcher("WEB-INF/views/superAdmin/listaUsuarios.jsp").forward(request,response);
+                        break;
                     }else{
                         request.setAttribute("mensaje","Error al Actualizar");
                         System.out.println("error al actualizar");

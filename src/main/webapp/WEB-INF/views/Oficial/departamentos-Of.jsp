@@ -168,19 +168,6 @@
                                             <p>${d.nombreDepto}</p>
                                             <p>Edificio </p><p>${d.numeroEdificio}</p>
                                         </div>
-                                        <div class="botones d-flex flex-column">
-                                            <form action="${pageContext.request.contextPath}/ServletDepartamentos" method="post">
-                                                <input type="hidden" name="nodep" value="${d.idepa}">
-                                                <input type="hidden" name="op" value="r">
-                                                <button class="btn btn-info btn-sm my-1 bot" type="submit">Ver</button>
-                                            </form>
-                                            <form action="${pageContext.request.contextPath}/ServletDepartamentos" method="post">
-                                                <input type="hidden" name="nodep" value="${d.idepa}">
-                                                <input type="hidden" name="op" value="de">
-                                                <button class="btn btn-success btn-sm my-1 bot"  type="submit">Asignar</button>
-                                            </form>
-
-                                        </div>
                                     </div>
                                 </div>
                             </div>

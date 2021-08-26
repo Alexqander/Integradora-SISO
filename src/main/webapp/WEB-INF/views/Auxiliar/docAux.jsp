@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/menus.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/departamentos.css">
-
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/depa.css">
     <title>VISTA DEPARTAMENTO</title>
 </head>
 <body>
@@ -94,7 +94,7 @@
                             </svg>
                         </div> <p class="p-text">Responder</p></a>
                         </li>
-                        <li class="opciones"><a href="${pageContext.request.contextPath}/ServletDocumentos?accion=a1"><div class="icono-l">
+                        <li class="opciones"><a href="${pageContext.request.contextPath}//ServletAsignaciones?accion=1&&i=${sessionScope.idUsuario}"><div class="icono-l">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard" viewBox="0 0 16 16">
                                 <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/>
                                 <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/>
@@ -127,14 +127,14 @@
 
         <main class="col-10 col-md-9 bg-ligth px-3">
             <div class="contenido bg-ligth ">
-                <div class="head">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="titulo">
-                                <h5>Auxiliar Juan Perez</h5>
+                <div class="head mx-3 titulo">
+                    <div class="row d-flex align-items-center">
+                        <div class="col">
+                            <div class="con-img">
+                                <img src="${pageContext.request.contextPath}/images/usud.png" class="usd" alt="" srcset="">
                             </div>
-
                         </div>
+                        <div class="col"><h5>Auxiliar ${sessionScope.nameUser}</h5></div>
                     </div>
                 </div>
 
@@ -159,7 +159,7 @@
                     <div class="row">
                         <div class="col">
 
-                            <c:forEach items="${listaAuxiliar}" var="docAux" varStatus="status">
+                            <c:forEach items="${listaAux}" var="docAux" varStatus="status">
                             <div class="elemento-lista">
                                 <ol class="list-group ">
                                     <li class="d-flex align-items-center justify-content-between px-2">
@@ -167,12 +167,21 @@
                                             <div class="fw-bold">${docAux.asunto}</div>
                                             <p class="mensaje">${docAux.folio}</p>
                                         </div>
-                                        <div class="boton-descarga">
-                                            <button class="btn btn-primary">descargar</button>
-                                        </div>
+                                        <form action="${pageContext.request.contextPath}/ServletSalida">
+                                            <input type="hidden" name="id" value="${docAux.folio}">
+                                            <div class="boton-descarga">
+                                                <button type="submit" class="btn btn-primary">ver Archivo</button>
+                                            </div>
+                                        </form>
+
+                                        <form action="${pageContext.request.contextPath}/ServletAsignaciones" method="get">
+                                            <input type="hidden" name="accion" value="2">
+                                            <input type="hidden" name="folio" value="${docAux.folio}">
+                                            <input type="hidden" name="auxiliar" value="${sessionScope.idUsuario}">
                                         <div class="boton-descarga mx-2">
                                             <button class="btn btn-success">responder</button>
                                         </div>
+                                        </form>
                                     </li>
                                 </ol>
                             </div>

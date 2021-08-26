@@ -74,7 +74,7 @@ public class DaoEmpleados {
                     unempleado.setNombre(resultado.getString("Nombre"));
                     unempleado.setApellido_paterno(resultado.getString("Apellido_Paterno"));
                     unempleado.setApellido_materno(resultado.getString("Apellido_Materno"));
-                    unempleado.setId_depto(resultado.getString("Email"));
+                    unempleado.setEmail(resultado.getString("Email"));
                 }
             }catch (SQLException exception){
                 exception.printStackTrace();

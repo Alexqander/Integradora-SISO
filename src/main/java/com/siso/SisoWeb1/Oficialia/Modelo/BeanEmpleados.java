@@ -15,6 +15,12 @@ public class BeanEmpleados {
 
     }
 
+    public BeanEmpleados(int id_Empleado, String id_cargo, String nombre) {
+        this.id_Empleado = id_Empleado;
+        this.id_cargo = id_cargo;
+        this.nombre = nombre;
+    }
+
     public BeanEmpleados(int id, int id_Empleado, String id_cargo, String id_depto, String contraseña, String nombre, String apellido_paterno, String apellido_materno, String email) {
         this.id = id;
         this.id_Empleado = id_Empleado;

@@ -27,26 +27,46 @@ public class ServletDocArch extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String folio =request.getParameter("folio");
+        int fol1 = Integer.parseInt(folio);
+
+
         String depart=request.getParameter("departamento");
+
         String  asunto=request.getParameter("asunto");
-        String empl = request.getParameter("empleado");
-        int folioD = Integer.parseInt(folio);
-        int empleado = Integer.parseInt(empl);
+
+
+
         Part archivo = request.getPart("archivo")!=null ? request.getPart("archivo"):null;
-        BeanDocumentos unDoc = new BeanDocumentos(folioD,asunto,depart,empleado,archivo.getInputStream());
+        String na= archivo.getSubmittedFileName();
+        System.out.println( archivo.getSubmittedFileName());
+        BeanDocumentos unDoc = new BeanDocumentos(fol1,asunto,depart,na ,archivo.getInputStream());
+        unDoc.setNombreArchivo(archivo.getSubmittedFileName());
         System.out.println(unDoc);
         DaoDocumentos documentos = new DaoDocumentos();
         boolean result = documentos.newDoc(unDoc);
         if (result){
+
+            System.out.println(result);
 
             System.out.println("FELICIDADES");
             daoDocumentos = new DaoDocumentos();
             documentosList = daoDocumentos.findAll();
             request.setAttribute("listaDocumentos", documentosList);
 
+
         }else {
             System.out.println("ERROR");
         }
+
+        daoDocumentos = new DaoDocumentos();
+        int todos =daoDocumentos.todosDocus();
+        request.setAttribute("todoslos",todos);
+
+        daoDocumentos = new DaoDocumentos();
+        int totalDoc1 =daoDocumentos.docsAssi("Asignado");
+        int docRes1 = daoDocumentos.docsAssi("Respondido");
+        request.setAttribute("docRespon",docRes1);
+        request.setAttribute("docAsi",totalDoc1);
 
         daoDocumentos = new DaoDocumentos();
         documentosList = daoDocumentos.findAll();

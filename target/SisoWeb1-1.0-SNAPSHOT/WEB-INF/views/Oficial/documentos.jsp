@@ -167,7 +167,7 @@
                     <h5>Total de Documentos</h5>
                   </div>
                   <div class="body">
-                    <h2>454</h2>
+                    <h2>${todoslos}</h2>
                   </div>
                   <div class="footer">
 
@@ -178,7 +178,7 @@
                     <h6>Documentos Asignados</h6>
                   </div>
                   <div class="body">
-                    <h2>123</h2>
+                    <h2>${docAsi}</h2>
                   </div>
                   <div class="footer">
 
@@ -189,7 +189,7 @@
                     <h6>Documentos Respondidos</h6>
                   </div>
                   <div class="body">
-                    <h2>35</h2>
+                    <h2>${docRespon}</h2>
                   </div>
                   <div class="footer"></div>
                 </div>
@@ -225,8 +225,8 @@
                     <th>ASUNTO</th>
                     <th>DEPARTAMENTO</th>
                     <th>EMPLEADO</th>
-                    <th>ESTADO</th>
                     <th>VER</th>
+                    <th>ESTADO</th>
                   </tr>
                   </thead>
 
@@ -242,7 +242,9 @@
                         <input type="hidden" value="${doc.folio}" name="id">
                         <button class="btn btn-success" type="submit">ver archivo</button>
                       </form></td>
-                    <td><span class="badge bg-primary">Pendiente</span></td>
+                      <td>
+                        <span class="badge bg-success">${doc.estadoOficio}</span>
+                      </td>
                   </tr>
                   </c:forEach>
                   </tbody>

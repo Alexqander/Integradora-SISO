@@ -173,9 +173,6 @@
                                     <div class="cont-img">
                                         <img src="${pageContext.request.contextPath}/images/superad.png" class="imgBg img-fluid" alt="">
                                     </div>
-
-                                    <a href="${pageContext.request.contextPath}/ServletRutes?to=archivo.jsp">VER ARCHIVO</a>
-
                                 </div>
                             </div>
                         </div>

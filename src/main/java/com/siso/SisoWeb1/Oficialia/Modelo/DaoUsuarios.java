@@ -24,6 +24,7 @@ public class DaoUsuarios {
                     unUser.setPassword(resultado.getString("clave"));
                     unUser.setRol(resultado.getString("rol"));
                     unUser.setNombre(resultado.getString("nombre"));
+                    unUser.setDepa(resultado.getString("depa"));
 
                 }
 

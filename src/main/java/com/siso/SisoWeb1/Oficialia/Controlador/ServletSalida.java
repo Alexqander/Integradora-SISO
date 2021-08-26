@@ -1,5 +1,6 @@
 package com.siso.SisoWeb1.Oficialia.Controlador;
 
+import com.siso.SisoWeb1.Oficialia.Modelo.BeanDocumentos;
 import com.siso.SisoWeb1.Oficialia.Modelo.DaoDocumentos;
 
 import javax.servlet.*;
@@ -19,11 +20,13 @@ public class ServletSalida extends HttpServlet {
             ServletOutputStream out = response.getOutputStream();
             String id = request.getParameter("id")!=null? request.getParameter("id"): "";
             DaoDocumentos documentos = new DaoDocumentos();
-            Blob pdf = documentos.getPdf(Integer.parseInt(id));
+            BeanDocumentos pdf = documentos.getPdf(Integer.parseInt(id));
             response.setContentType("application/pdf");
+            response.addHeader("Content-Disposition",  "inline; filename="+ pdf.getNombreArchivo());
+
             InputStream in = null;
-            in = pdf.getBinaryStream();
-            int length = (int)pdf.length();
+            in = pdf.getArchivo1().getBinaryStream();
+            int length = (int)pdf.getArchivo1().length();
             int buffeerzise = 500000;
             byte[] buffer = new byte[buffeerzise];
 

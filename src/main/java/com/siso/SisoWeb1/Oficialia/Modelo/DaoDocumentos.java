@@ -24,8 +24,6 @@ public class DaoDocumentos {
                 unDocument.setDepartamento(rs.getString("departamento"));
                 unDocument.setEmpleado(rs.getInt("empleado"));
                 unDocument.setEstadoOficio(rs.getString("estado"));
-                unDocument.setFechaIngreso(rs.getDate("fechaEnvio"));
-                unDocument.setFecfaRespuesta(rs.getDate("fechaResp"));
                 documentsList.add(unDocument);
             }
 
@@ -40,15 +38,13 @@ public class DaoDocumentos {
     public boolean newDoc(BeanDocumentos unDocumento) {
 
         try (Connection Connection = ConnectionMysql.getConnection();) {
-            try (PreparedStatement pstm = Connection.prepareStatement("INSERT INTO documentos (folio, asunto, departamento , empleado ,estado ,fechaEnvio ,fechaResp,archivo) VALUES (?,?,?,?,?,?,?,? );")) {
+            try (PreparedStatement pstm = Connection.prepareStatement("INSERT INTO documentos (folio, asunto, departamento  ,estado ,archivo,nombreArchi) VALUES (?,?,?,?,?,? );")) {
                 pstm.setInt(1, unDocumento.getFolio());
                 pstm.setString(2,unDocumento.getAsunto());
                 pstm.setString(3, unDocumento.getDepartamento());
-                pstm.setInt(4,unDocumento.getEmpleado());
-                pstm.setString(5,unDocumento.getEstadoOficio());
-                pstm.setDate(6, (Date) unDocumento.getFechaIngreso());
-                pstm.setDate(7,(Date) unDocumento.getFecfaRespuesta());
-                pstm.setBlob(8, unDocumento.getArchivo());
+                pstm.setString(4,unDocumento.getEstadoOficio());
+                pstm.setBlob(5, unDocumento.getArchivo());
+                pstm.setString(6, unDocumento.getNombreArchivo());
                 return pstm.executeUpdate() == 1;
             } catch (SQLException exception) {
                 exception.printStackTrace();
@@ -91,9 +87,6 @@ public class DaoDocumentos {
                     unDocumento.setDepartamento(resultado.getString("departamento"));
                    unDocumento.setEmpleado(resultado.getInt("empleado"));
                    unDocumento.setEstadoOficio(resultado.getString("estado"));
-                   unDocumento.setFechaIngreso(resultado.getDate("fechaEnvio"));
-                   unDocumento.setFecfaRespuesta(resultado.getDate("fechaResp"));
-
                 }
 
             }catch (SQLException exception){
@@ -113,18 +106,23 @@ public class DaoDocumentos {
 
 
 //METDOD PARA OBTENER EL ARCHVIVO POR MEDIO DEL ID
-    public Blob getPdf(int folio) {
+    public BeanDocumentos getPdf(int folio) {
+
+        BeanDocumentos docu = new BeanDocumentos();
 
         Blob archiv = null;
 
         try (Connection con = ConnectionMysql.getConnection();) {
 
-            try (PreparedStatement pstm = con.prepareStatement("select archivo from documentos where folio =?;");) {
+            try (PreparedStatement pstm = con.prepareStatement("select archivo,nombreArchi from documentos where folio =?;");) {
 
                 pstm.setInt(1, folio);
                 ResultSet rs = pstm.executeQuery();
                 while(rs.next()){
-                    archiv = rs.getBlob("archivo");
+                    docu.setArchivo1(rs.getBlob("archivo"));
+                    docu.setNombreArchivo(rs.getString("nombreArchi"));
+
+
                 }
             } catch (SQLException ex) {
                 ex.printStackTrace();
@@ -134,14 +132,14 @@ public class DaoDocumentos {
             ex.printStackTrace();
 
         }
-        return archiv;
+        return docu;
 
     }
 
     public List<BeanDocumentos> findAux(int empleado) {
         List<BeanDocumentos>auxLista = new ArrayList<>();
         try (Connection Connection = ConnectionMysql.getConnection();) {
-            try (PreparedStatement pstm = Connection.prepareStatement("select documentos.folio, documentos.asunto from documentos where empleado =? ");) {
+            try (PreparedStatement pstm = Connection.prepareStatement("select folio,asunto from documentos where empleado =? ");) {
 
                 pstm.setInt(1, empleado);
                 ResultSet resultado = pstm.executeQuery();
@@ -161,4 +159,50 @@ public class DaoDocumentos {
         System.out.println(auxLista);
         return auxLista;
     }
+
+    public int docsAssi (String estado){
+        int contador =0;
+        try (Connection Connection = ConnectionMysql.getConnection();) {
+            try (PreparedStatement pstm = Connection.prepareStatement("select folio from  documentos where estado =? ");) {
+                pstm.setString(1,estado);
+                ResultSet resultado = pstm.executeQuery();
+
+                while (resultado.next()){
+                    contador = contador+1;
+
+                }
+
+            }catch (SQLException exception){
+                exception.printStackTrace();
+            }
+        }catch (SQLException exception){
+            exception.printStackTrace();
+
+        }
+        System.out.println(contador);
+        return contador;
+    }
+    public int todosDocus (){
+        int contador =0;
+        try (Connection Connection = ConnectionMysql.getConnection();) {
+            try (PreparedStatement pstm = Connection.prepareStatement("select folio from documentos;");) {
+                ResultSet resultado = pstm.executeQuery();
+
+                while (resultado.next()){
+                    contador = contador+1;
+
+                }
+
+            }catch (SQLException exception){
+                exception.printStackTrace();
+            }
+        }catch (SQLException exception){
+            exception.printStackTrace();
+
+        }
+        System.out.println(contador);
+        return contador;
+    }
+
+
 }
