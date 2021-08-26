@@ -48,3 +48,7 @@
 .bb:hover{
     background: var(--verdeAgua);
 }
+imgsi{
+    width:200px;
+    height:auto;
+}

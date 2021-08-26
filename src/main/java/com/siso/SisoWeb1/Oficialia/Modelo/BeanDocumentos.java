@@ -10,12 +10,21 @@ public class BeanDocumentos {
     private String asunto;
     private String departamento;
     private int empleado;
+    private String nombreE;
     private String estadoOficio;
     private InputStream archivo;
     private String nombreArchivo;
     private Blob archivo1;
 
 
+    public BeanDocumentos(int folio, String asunto, String departamento, int empleado, String nombreE, String estadoOficio) {
+        this.folio = folio;
+        this.asunto = asunto;
+        this.departamento = departamento;
+        this.empleado = empleado;
+        this.nombreE = nombreE;
+        this.estadoOficio = estadoOficio;
+    }
 
     public BeanDocumentos(){
 
@@ -128,5 +137,13 @@ public class BeanDocumentos {
 
     public void setArchivo1(Blob archivo1) {
         this.archivo1 = archivo1;
+    }
+
+    public String getNombreE() {
+        return nombreE;
+    }
+
+    public void setNombreE(String nombreE) {
+        this.nombreE = nombreE;
     }
 }

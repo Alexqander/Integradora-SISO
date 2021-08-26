@@ -54,8 +54,15 @@ public class ServletEmpleados extends HttpServlet {
 
                 if (result){
 
-                    request.setAttribute("mensaje1","Usuario Registrado");
 
+                    request.setAttribute("mensaje1","Usuario Registrado");
+                    DaoEmpleados daoEmpleados2 =new DaoEmpleados();
+                    List<BeanEmpleados> empleadosList = daoEmpleados2.findAll();
+                    request.setAttribute("listaempleados",empleadosList);
+                    request.getRequestDispatcher("WEB-INF/views/superAdmin/listaUsuarios.jsp").forward(request,response);
+
+
+                    break;
                 }else{
                     request.setAttribute("valor","2");
                     request.setAttribute("mensaje","Error al Registrar Usuario");
@@ -66,7 +73,7 @@ public class ServletEmpleados extends HttpServlet {
                     daoCargos = new DaoCargos();
                     cargosList = daoCargos.findAll();
                     request.setAttribute("listacargos",cargosList);
-                    request.getRequestDispatcher("WEB-INF/views/superAdmin/CrearUsuario.jsp").forward(request,response);
+                    request.getRequestDispatcher("WEB-INF/views/superAdmin/Us-Cr.jsp").forward(request,response);
 
                 }
                 request.getRequestDispatcher("WEB-INF/views/superAdmin/CrearUsuario.jsp").forward(request,response);

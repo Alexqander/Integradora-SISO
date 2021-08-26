@@ -15,7 +15,7 @@ public class DaoDocumentos {
         List<BeanDocumentos> documentsList = new ArrayList<>();
         try(Connection con = ConnectionMysql.getConnection();
             Statement stm = con.createStatement();
-            ResultSet rs = stm.executeQuery("select * from documentos;");
+            ResultSet rs = stm.executeQuery("select folio, asunto,departamento,empleado,nombre ,estado from documentos inner join empleados on empleados.id_Empleado = documentos.empleado;");
         ) {
             while (rs.next()){
                 BeanDocumentos unDocument = new BeanDocumentos();
@@ -23,6 +23,7 @@ public class DaoDocumentos {
                 unDocument.setAsunto(rs.getString("asunto"));
                 unDocument.setDepartamento(rs.getString("departamento"));
                 unDocument.setEmpleado(rs.getInt("empleado"));
+                unDocument.setNombreE(rs.getString("nombre"));
                 unDocument.setEstadoOficio(rs.getString("estado"));
                 documentsList.add(unDocument);
             }
@@ -42,7 +43,7 @@ public class DaoDocumentos {
                 pstm.setInt(1, unDocumento.getFolio());
                 pstm.setString(2,unDocumento.getAsunto());
                 pstm.setString(3, unDocumento.getDepartamento());
-                pstm.setString(4,unDocumento.getEstadoOficio());
+                pstm.setString(4,"Enviado");
                 pstm.setBlob(5, unDocumento.getArchivo());
                 pstm.setString(6, unDocumento.getNombreArchivo());
                 return pstm.executeUpdate() == 1;
